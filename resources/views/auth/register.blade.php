@@ -9,11 +9,30 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
+        <!-- Nickname -->
+        <div>
+            <x-input-label for="nickname" :value="__('Nickname')" />
+            <x-text-input id="nickname" class="block mt-1 w-full" type="text" name="nickname" :value="old('nickname')" required autofocus autocomplete="nickname" />
+            <x-input-error :messages="$errors->get('nickname')" class="mt-2" />
+        </div>
+
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Bio -->
+        <div class="mt-4">
+            <x-input-label for="bio" :value="__('Description')" />
+
+            <x-text-input id="bio" class="block mt-1 w-full"
+                            type="text"
+                            name="bio"
+                            required autocomplete="Description" :value="old('bio')" />
+
+            <x-input-error :messages="$errors->get('bio')" class="mt-2" />
         </div>
 
         <!-- Password -->
