@@ -7,7 +7,24 @@ export default {
    "./resources/**/*.vue",
  ],
  theme: {
-   extend: {},
+   extend: {
+    margin: {
+        '100': '28rem',   
+        '104': '32rem',   
+        '112': '36rem',  
+        '120': '40rem',   
+        '128': '48rem',   
+        '144': '56rem',   
+        '160': '64rem',
+        '170': '70rem',
+        '175': '76rem',
+        '180': '78rem',  
+        '190': '80rem',
+        '195': '81rem',
+        '200': '84rem',
+        '210': '88rem'
+      }
+   },
  },
  plugins: [],
 }
