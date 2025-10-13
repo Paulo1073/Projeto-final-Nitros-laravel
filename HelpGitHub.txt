@@ -1,3 +1,12 @@
 git add .
 git commit -m "..."
 git push origin main
+
+Commits
+<tipo>: <descrição curta em minúsculas e no imperativo>
+
+Exemplos:
+feat: adiciona componente de login
+fix: corrige bug na exibição de imagens
+docs: atualiza README com instruções de instalação
+chore: adiciona imagens e logos do projeto
