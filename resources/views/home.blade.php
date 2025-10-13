@@ -1,15 +1,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#000000" /> <!-- Cor da barra no mobile -->
+  <meta name="theme-color" content="#000000" /> 
 
   <title>Nitros</title>
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="{{ asset('assets/favicons/favicon-96x96.png') }}" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="{{ asset('assets/favicons/favicon.svg') }}" />
+  <link rel="shortcut icon" href="{{ asset('assets/favicons/favicon.ico') }}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/favicons/apple-touch-icon.png') }}" />
   <meta name="apple-mobile-web-app-title" content="Nitros" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="manifest" href="{{ asset('assets/favicons/site.webmanifest') }}" />
 
   
 
