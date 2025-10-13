@@ -5,29 +5,29 @@
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-text-input id="name" class="  hover:cursor-pointer rounded hover:border-purple-900 block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Nickname -->
-        <div>
+        <div class="mt-4" >
             <x-input-label for="nickname" :value="__('Nickname')" />
-            <x-text-input id="nickname" class="block mt-1 w-full" type="text" name="nickname" :value="old('nickname')" required autofocus autocomplete="nickname" />
+            <x-text-input id="nickname" class="  hover:cursor-pointer rounded hover:border-purple-900 block mt-1 w-full" type="text" name="nickname" :value="old('nickname')" required autofocus autocomplete="nickname" />
             <x-input-error :messages="$errors->get('nickname')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="  hover:cursor-pointer rounded hover:border-purple-900 block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Bio -->
         <div class="mt-4">
-            <x-input-label for="bio" :value="__('Description')" />
+            <x-input-label for="bio" :value="__('Bio')" />
 
-            <x-text-input id="bio" class="block mt-1 w-full"
+            <x-text-input id="bio" class="  hover:cursor-pointer rounded hover:border-purple-900 block mt-1 w-full"
                             type="text"
                             name="bio"
                             required autocomplete="Description" :value="old('bio')" />
@@ -39,7 +39,7 @@
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="  hover:cursor-pointer rounded hover:border-purple-900 block mt-1 w-full"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
@@ -51,7 +51,7 @@
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+            <x-text-input id="password_confirmation" class="  hover:cursor-pointer rounded hover:border-purple-900 block mt-1 w-full"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 
@@ -59,11 +59,11 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+            <a class="underline text-sm text-gray-600 hover:text-purpl-900 rounded-md" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 
-            <x-primary-button class="ms-4">
+            <x-primary-button class="  hover:bg-purple-900 bg-blue-800 ms-4">
                 {{ __('Register') }}
             </x-primary-button>
         </div>
