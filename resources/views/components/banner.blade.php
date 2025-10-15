@@ -1,22 +1,48 @@
-<div class="relative max-w-7xl mx-auto h-100  mt-10 overflow-hidden rounded-lg shadow-lg">
+<div class="relative max-w-7xl mx-auto h-120  mt-4 overflow-hidden rounded-lg shadow-lg">
     <!-- Slides -->
     <div class="absolute inset-0 transition-opacity duration-1000 opacity-100" id="slide1">
-        <img src="{{ asset('assets/images/1.jpg') }}" class="w-full h-full object-cover" alt="Banner 1">
+        <img src="{{ asset('assets/images/10.png') }}" class="w-full h-full object-cover" alt="Banner 1">
     </div>
 
     <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide2">
-        <img src="{{ asset('assets/images/2.jpg') }}" class="w-full h-full object-cover" alt="Banner 2">
+        <img src="{{ asset('assets/images/11.png') }}" class="w-full h-full object-cover" alt="Banner 2">
     </div>
 
     <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide3">
-        <img src="{{ asset('assets/images/3.jpg') }}" class="w-full h-full object-cover" alt="Banner 3">
+        <img src="{{ asset('assets/images/12.png') }}" class="w-full h-full object-cover" alt="Banner 3">
     </div>
+
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide4">
+        <img src="{{ asset('assets/images/13.png') }}" class="w-full h-full object-cover" alt="Banner 4">
+    </div>
+
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide5">
+        <img src="{{ asset('assets/images/14.png') }}" class="w-full h-full object-cover" alt="Banner 5">
+    </div>
+
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide6">
+        <img src="{{ asset('assets/images/15.png') }}" class="w-full h-full object-cover" alt="Banner 6">
+    </div>
+
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide7">
+        <img src="{{ asset('assets/images/16.png') }}" class="w-full h-full object-cover" alt="Banner 7">
+    </div>
+
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide8">
+        <img src="{{ asset('assets/images/17.png') }}" class="w-full h-full object-cover" alt="Banner 8">
+    </div>
+
 
     <!-- Indicadores -->
     <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         <div class="w-3 h-3 bg-white rounded-full opacity-70" id="dot1"></div>
         <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot2"></div>
         <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot3"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot4"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot5"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot6"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot7"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot8"></div>
     </div>
 </div>
 
@@ -25,12 +51,22 @@ document.addEventListener('DOMContentLoaded', function () {
     let slides = [
         document.getElementById('slide1'),
         document.getElementById('slide2'),
-        document.getElementById('slide3')
+        document.getElementById('slide3'),
+        document.getElementById('slide4'),
+        document.getElementById('slide5'),
+        document.getElementById('slide6'),
+        document.getElementById('slide7'),
+        document.getElementById('slide8')
     ];
     let dots = [
         document.getElementById('dot1'),
         document.getElementById('dot2'),
-        document.getElementById('dot3')
+        document.getElementById('dot3'),
+        document.getElementById('dot4'),
+        document.getElementById('dot5'),
+        document.getElementById('dot6'),
+        document.getElementById('dot7'),
+        document.getElementById('dot8')
     ];
 
     let current = 0;
