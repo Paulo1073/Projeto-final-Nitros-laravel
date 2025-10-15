@@ -9,23 +9,23 @@
     </x-slot>
      @vite(['resources/css/app.css', 'resources/js/app.js'])
     <div class="py-12">
-        <form action="{{ route('reminders.store') }}" method="POST">
+        <form  class="flex ml-4 flex-col" action="{{ route('reminders.store') }}" method="POST">
             @csrf
 
             <x-input-label for="titulo" :value="__('Título do Lembrete')" />
-            <x-text-input id="titulo" name="titulo" :value="old('titulo')" />
+            <x-text-input class="w-64" id="titulo" name="titulo" :value="old('titulo')" />
 
             <x-input-label for="descricao" :value="__('Descrição')" />
-            <textarea id="descricao" name="descricao" rows="4" class="w-full p-2">{{ old('descricao') }}</textarea>
+            <textarea class="w-64" id="descricao" name="descricao" rows="4" class="w-full p-2">{{ old('descricao') }}</textarea>
 
             <x-input-label for="game_id" :value="__('Jogo')" />
-            <select id="game_id" name="game_id" class="w-full p-2">
+            <select class="w-64" id="game_id" name="game_id" class="w-full p-2">
                 @foreach($games as $game)
                     <option value="{{ $game->id }}">{{ $game->titulo }}</option>
                 @endforeach
             </select>
 
-            <x-primary-button class="mt-4">Salvar Lembrete</x-primary-button>
+            <x-primary-button class=" hover:bg-purple-800  mt-4 w-[160px]">Salvar Lembrete</x-primary-button>
         </form>
 
     </div>

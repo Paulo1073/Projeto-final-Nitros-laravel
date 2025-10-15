@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Reminder;
 use Illuminate\Http\Request;
+use App\Http\Controllers\GameController;
+use App\Models\Game;
 
 class ReminderController extends Controller
 {
@@ -12,7 +14,8 @@ class ReminderController extends Controller
      */
     public function index()
     {
-        //
+        $reminders = Reminder::with('game')->get();
+        return view('reminders.index', compact('reminders'));
     }
 
     /**
@@ -20,7 +23,8 @@ class ReminderController extends Controller
      */
     public function create()
     {
-        //
+        $games = Game::all();
+        return view('reminders.create', compact('games'));
     }
 
     /**
@@ -28,7 +32,19 @@ class ReminderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'titulo' => 'nullable|string|max:255',
+            'descricao' => 'required|string',
+            'game_id' => 'required|exists:games,id',
+        ]);
+
+        Reminder::create([
+            'game_id' => $validated['game_id'],
+            'titulo' => $validated['titulo'],
+            'descricao' => $validated['descricao'],
+        ]);
+
+        return redirect()->route('reminders.index')->with('success', 'Lembrete criado com sucesso!');
     }
 
     /**
