@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('jogos', function (Blueprint $table) {
+        Schema::create('games', function (Blueprint $table) {
             $table->id(); // id auto incremental
             $table->string('titulo'); // título do jogo
             $table->string('genero')->nullable(); // gênero (ex: ação, aventura, etc.)
