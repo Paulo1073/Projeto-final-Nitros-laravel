@@ -28,12 +28,12 @@
                         <th class="px-4 py-2 text-left">Título</th>
                         <th class="px-4 py-2 text-left">Descrição</th>
                         <th class="px-4 py-2 text-left">Concluído</th>
-                        <th class="px-4 py-2 text-left">Ações</th>
+                        <th class="px-4 py-2 text-left"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($reminders as $reminder)
-                        <tr class="border-b">
+                        <tr class="  border-b">
                             <td class="px-4 py-2">{{ $reminder->game->titulo ?? 'Jogo não encontrado' }}</td>
                             <td class="px-4 py-2">{{ $reminder->titulo ?? '-' }}</td>
                             <td class="px-4 py-2 whitespace-pre-wrap">{{ $reminder->descricao }}</td>
@@ -41,16 +41,16 @@
                                 @if($reminder->concluido)
                                     <span class="text-green-600 font-semibold">Sim</span>
                                 @else
-                                    <span class="text-red-600 font-semibold">Não</span>
+                                    <span class="text-red-600  font-semibold">Não</span>
                                 @endif
                             </td>
-                            <td class="px-4 py-2">
-                                <a href="{{ route('reminders.edit', $reminder->id) }}" class="text-blue-600 hover:underline">Editar</a>
-                                |
+                            <td class=" flex gap-8 px-4 py-2">
+                                <a href="{{ route('reminders.edit', $reminder->id) }}" class="px-2 py-1 bg-gray-800 text-white rounded hover:bg-gray-950">Editar</a>
+                                
                                 <form action="{{ route('reminders.destroy', $reminder->id) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="text-red-600 hover:underline" onclick="return confirm('Deseja realmente excluir este lembrete?')">
+                                    <button type="submit" class="px-2 py-1 bg-purple-900 text-white rounded hover:bg-purple-950" onclick="return confirm('Deseja realmente excluir este lembrete?')">
                                         Excluir
                                     </button>
                                 </form>

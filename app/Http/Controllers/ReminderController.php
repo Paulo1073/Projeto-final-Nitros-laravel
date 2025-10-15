@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reminder;
-use Illuminate\Http\Request;
-use App\Http\Controllers\GameController;
 use App\Models\Game;
+use Illuminate\Http\Request;
 
 class ReminderController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Lista todos os lembretes
      */
     public function index()
     {
@@ -19,7 +18,7 @@ class ReminderController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostra o formulário de criação
      */
     public function create()
     {
@@ -28,7 +27,7 @@ class ReminderController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Salva um novo lembrete
      */
     public function store(Request $request)
     {
@@ -48,34 +47,37 @@ class ReminderController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Reminder $reminder)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
+     * Mostra o formulário de edição
      */
     public function edit(Reminder $reminder)
     {
-        //
+        $games = Game::all();
+        return view('reminders.edit', compact('reminder', 'games'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Atualiza um lembrete existente
      */
     public function update(Request $request, Reminder $reminder)
     {
-        //
+        $validated = $request->validate([
+            'titulo' => 'nullable|string|max:255',
+            'descricao' => 'required|string',
+            'game_id' => 'required|exists:games,id',
+            'concluido' => 'sometimes|boolean',
+        ]);
+
+        $reminder->update($validated);
+
+        return redirect()->route('reminders.index')->with('success', 'Lembrete atualizado com sucesso!');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Deleta um lembrete
      */
     public function destroy(Reminder $reminder)
     {
-        //
+        $reminder->delete();
+        return redirect()->route('reminders.index')->with('success', 'Lembrete excluído com sucesso!');
     }
 }
