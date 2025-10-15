@@ -23,6 +23,12 @@
                     <x-nav-link :href="route('reminders.index')" :active="request()->routeIs('reminders.index')">
                         {{ __('Lembretes') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('reminders.index')" :active="request()->routeIs('reminders.index')">
+                        {{ __('Amigos') }}
+                    </x-nav-link>
+
+                
                 </div>
             </div>
 
