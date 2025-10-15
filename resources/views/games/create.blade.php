@@ -24,7 +24,7 @@
             <x-text-input class="w-64" id="plataforma" name="plataforma" :value="old('plataforma')" required />
 
             <x-input-label class="mt-4" for="imagem" :value="__('Imagem do Jogo')" />
-            <input  type="file" name="imagem" required />
+            <input class="" type="file" name="imagem" required />
 
             <x-primary-button class=" text-center hover:bg-purple-900 mt-4  w-[120px]" >Cadastrar</x-primary-button>
         </form>
