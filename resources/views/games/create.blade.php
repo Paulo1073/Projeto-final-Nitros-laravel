@@ -26,7 +26,7 @@
             <x-input-label class="mt-4" for="imagem" :value="__('Imagem do Jogo')" />
             <input class="" type="file" name="imagem" required />
 
-            <x-primary-button class=" text-center hover:bg-purple-900 mt-4  w-[120px]" >Cadastrar</x-primary-button>
+            <x-primary-button class=" text-center hover:bg-purple-900 mt-4  w-[115px]" >Cadastrar</x-primary-button>
         </form>
     </div>
 

@@ -52,7 +52,6 @@ class GameController extends Controller
         ]);
 
 
-        // 🔹 Redirecionar com mensagem de sucesso
         return redirect()->route('games.index')->with('success', 'Jogo cadastrado com sucesso!');
     
     }
@@ -70,7 +69,7 @@ class GameController extends Controller
      */
     public function edit(game $game)
     {
-        //
+        return view('games.edit', compact('game'));
     }
 
     /**
@@ -78,7 +77,27 @@ class GameController extends Controller
      */
     public function update(Request $request, game $game)
     {
-        //
+        $validated = $request->validate([
+        'titulo' => 'required|string|max:255',
+        'genero' => 'required|string|max:100',
+        'descricao' => 'required|string',
+        'plataforma' => 'required|string|max:100',
+        'imagem' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    if ($request->hasFile('imagem')) {
+        $imagePath = $request->file('imagem')->store('games', 'public');
+        $game->imagem = $imagePath;
+    }
+
+    $game->update([
+        'titulo' => $validated['titulo'],
+        'genero' => $validated['genero'],
+        'descricao' => $validated['descricao'],
+        'plataforma' => $validated['plataforma'],
+    ]);
+
+        return redirect()->route('games.index')->with('success', 'Game atualizado com sucesso!');
     }
 
     /**
@@ -86,6 +105,7 @@ class GameController extends Controller
      */
     public function destroy(game $game)
     {
-        //
+        $game->delete();
+        return redirect()->route('games.index')->with('success', 'Game deletado com sucesso!');
     }
 }
