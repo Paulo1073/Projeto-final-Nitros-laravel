@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Friend;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class FriendController extends Controller
 {
@@ -12,7 +13,8 @@ class FriendController extends Controller
      */
     public function index()
     {
-        //
+        $friends = Friend::all();
+        return view('friends.index', compact('friends'));
     }
 
     /**
@@ -20,7 +22,8 @@ class FriendController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::where('id', '!=', auth()->id())->get();
+        return view('friends.create', compact('users'));
     }
 
     /**
@@ -28,7 +31,24 @@ class FriendController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validated = $request->validate([
+            'user_id' => 'required|exists:users,id|not_in:' . auth()->id(), 
+            'bio' => 'nullable|string',
+        ]);
+
+        // Pega o usuário selecionado para salvar o nickname
+        $user = \App\Models\User::find($validated['user_id']);
+
+        Friend::create([
+            'user_id' => $user->id,
+            'nickname' => $user->nickname,
+            'bio' => $validated['bio'],
+        ]);
+
+        return redirect()->route('friends.index')->with('success', 'Amigo adicionado com sucesso!');
+
+
     }
 
     /**

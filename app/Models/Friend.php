@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Friend extends Model
 {
-    //
+        protected $fillable = [
+        'nickname',
+        'user_id',
+        'bio'
+    ];
 }
