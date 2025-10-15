@@ -18,7 +18,7 @@
 </head
 
 <body class="m-0 p-0 box-border relative">
-  <nav class=" gap-6 ml-190 flex justify-end items-end absolute top-14  w-100 z-50 bg-transparent">
+  <nav class=" gap-6 ml-160 flex justify-end items-end absolute top-14  w-100 z-50 bg-transparent">
     @auth
         <a class="text-white ml-18 px-4 py-1 border border-white border-opacity-50 transition-colors duration-300 ease-in-out hover:border-white" href="{{ url('/dashboard') }}">Dashboard</a>
     @else
