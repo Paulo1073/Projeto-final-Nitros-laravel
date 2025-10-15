@@ -64,7 +64,8 @@ class FriendController extends Controller
      */
     public function edit(Friend $friend)
     {
-        //
+        $users = \App\Models\User::where('id', '!=', auth()->id())->get();
+        return view('friends.edit', compact('friend', 'users'));
     }
 
     /**
@@ -72,7 +73,20 @@ class FriendController extends Controller
      */
     public function update(Request $request, Friend $friend)
     {
-        //
+        $validated = $request->validate([
+            'user_id' => 'required|exists:users,id|not_in:' . auth()->id(),
+            'bio' => 'nullable|string',
+        ]);
+
+        $user = \App\Models\User::find($validated['user_id']);
+
+        $friend->update([
+            'user_id' => $user->id,
+            'nickname' => $user->nickname,
+            'bio' => $validated['bio'],
+        ]);
+
+        return redirect()->route('friends.index')->with('success', 'Amigo atualizado com sucesso!');
     }
 
     /**
@@ -80,6 +94,7 @@ class FriendController extends Controller
      */
     public function destroy(Friend $friend)
     {
-        //
+        $friend->delete();
+        return redirect()->route('friends.index')->with('success', 'Amigo removido com sucesso!');
     }
 }

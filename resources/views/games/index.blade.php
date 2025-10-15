@@ -36,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($games as $game)
+                    @forelse($games as $game)
                         <tr class="border-b">
                             <td class="px-4 py-2">
                                 <img src="{{ asset('storage/' . $game->imagem) }}" alt="{{ $game->titulo }}" class="w-20 h-20 object-cover rounded">
@@ -45,17 +45,23 @@
                             <td class="px-4 py-2">{{ $game->genero }}</td>
                             <td class="px-4 py-2">{{ $game->plataforma }}</td>
                             <td class="px-4 py-2 whitespace-pre-wrap">{{ $game->descricao }}</td>
-                            <td class="flex gap-10 ml-12 mt-8" >
+                            <td class="flex gap-10 ml-12 mt-8">
                                 <a href="{{ route('games.edit', $game->id) }}" class="px-2 py-1 bg-gray-800 text-white rounded hover:bg-gray-950">Editar</a>
 
                                 <form action="{{ route('games.destroy', $game->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este game?');">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="px-2 py-1 bg-purple-900 text-white rounded hover:bg-purple-950">Excluir</button>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="px-2 py-1 bg-purple-900 text-white rounded hover:bg-purple-950">Excluir</button>
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="7" class="px-4 py-2 text-center text-gray-500">
+                                Nenhum game encontrado.
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
 
 
