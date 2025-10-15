@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\FriendController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReminderController;
 
@@ -37,4 +38,13 @@ Route::post('/reminders', [ReminderController::class, 'store'])->name('reminders
 Route::get('/reminders/{reminder}/edit', [ReminderController::class, 'edit'])->name('reminders.edit');
 Route::put('/reminders/{reminder}', [ReminderController::class, 'update'])->name('reminders.update');
 Route::delete('/reminders/{reminder}', [ReminderController::class, 'destroy'])->name('reminders.destroy');
+
+//FRIENDS CRUD
+Route::get('/friends', [FriendController::class, 'index'])->name('friends.index');
+Route::get('/friends/create', [FriendController::class, 'create'])->name('friends.create');
+Route::post('/friends', [FriendController::class, 'store'])->name('friends.store');
+Route::get('/friends/{friend}/edit', [FriendController::class, 'edit'])->name('friends.edit');
+Route::put('/friends/{friend}', [FriendController::class, 'update'])->name('friends.update');
+Route::delete('/friends/{friend}', [FriendController::class, 'destroy'])->name('friends.destroy');
+
 
