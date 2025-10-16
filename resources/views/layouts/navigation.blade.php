@@ -28,6 +28,10 @@
                         {{ __('Amigos') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('friends.index')" :active="request()->routeIs('reminders.index')">
+                        {{ __('Speedruns') }}
+                    </x-nav-link>
+
                 
                 </div>
             </div>
