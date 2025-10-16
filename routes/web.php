@@ -5,6 +5,7 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReminderController;
+use App\Http\Controllers\SpeedrunController;
 
 Route::get('/', function () {
     return view('home');
@@ -46,5 +47,15 @@ Route::post('/friends', [FriendController::class, 'store'])->name('friends.store
 Route::get('/friends/{friend}/edit', [FriendController::class, 'edit'])->name('friends.edit');
 Route::put('/friends/{friend}', [FriendController::class, 'update'])->name('friends.update');
 Route::delete('/friends/{friend}', [FriendController::class, 'destroy'])->name('friends.destroy');
+
+
+//FRIENDS CRUD
+route::get('/speedruns', [SpeedrunController::class, 'index'])->name('speedruns.index');
+route::get('/speedruns/create', [SpeedrunController::class, 'create'])->name('speedruns.create');
+route::post('/speedruns', [SpeedrunController::class, 'store'])->name('speedruns.store');
+route::get('/speedruns/{speedrun}/edit', [SpeedrunController::class, 'edit'])->name('speedruns.edit');
+route::put('/speedruns/{speedrun}', [SpeedrunController::class, 'update'])->name('speedruns.update');
+route::delete('/speedruns/{speedrun}', [SpeedrunController::class, 'destroy'])->name('speedruns.destroy');
+
 
 
