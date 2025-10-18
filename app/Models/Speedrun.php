@@ -6,12 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Speedrun extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
         'game_id',
-        'tempo',
-        'modo',
-        'data'
+        'time',
+        'mode',
+        'date',
     ];
+
+    // Relacionamento com Game
+    public function game()
+    {
+        return $this->belongsTo(Game::class);
+    }
 }

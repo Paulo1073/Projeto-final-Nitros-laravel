@@ -49,7 +49,7 @@ Route::put('/friends/{friend}', [FriendController::class, 'update'])->name('frie
 Route::delete('/friends/{friend}', [FriendController::class, 'destroy'])->name('friends.destroy');
 
 
-//FRIENDS CRUD
+//SPEEDRUNS CRUD
 route::get('/speedruns', [SpeedrunController::class, 'index'])->name('speedruns.index');
 route::get('/speedruns/create', [SpeedrunController::class, 'create'])->name('speedruns.create');
 route::post('/speedruns', [SpeedrunController::class, 'store'])->name('speedruns.store');

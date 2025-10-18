@@ -10,9 +10,9 @@ return new class extends Migration {
         Schema::create('speedruns', function (Blueprint $table) {
             $table->id();
             $table->foreignId('game_id')->constrained()->onDelete('cascade');
-            $table->time('tempo');
-            $table->string('modo');
-            $table->date('data'); 
+            $table->time('time');
+            $table->string('mode');
+            $table->date('date'); 
             $table->timestamps();
         });
     }

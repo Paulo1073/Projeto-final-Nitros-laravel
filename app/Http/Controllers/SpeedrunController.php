@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use App\Models\Speedrun;
 use Illuminate\Http\Request;
 
@@ -12,25 +13,36 @@ class SpeedrunController extends Controller
      */
     public function index()
     {
-        $speedruns = Speedrun::all();
+        // Carrega o relacionamento com Game
+        $speedruns = Speedrun::with('game')->get();
         return view('speedruns.index', compact('speedruns'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $games = Game::all();
+        return view('speedruns.create', compact('games'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'game_id' => 'required|exists:games,id',
+            'time' => 'required',
+            'date' => 'required|date',
+            'mode' => 'required|string|max:50',
+        ]);
+
+        Speedrun::create([
+            'game_id' => $request->game_id,
+            'time' => $request->time,
+            'date' => $request->date,
+            'mode' => $request->mode,
+        ]);
+
+        return redirect()->route('speedruns.index')->with('success', 'Speedrun criado com sucesso!');
     }
+
 
     /**
      * Display the specified resource.
