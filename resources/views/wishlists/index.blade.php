@@ -21,24 +21,20 @@
             <table class="min-w-full bg-white border border-gray-200">
                 <thead>
                     <tr class="bg-gray-100 border-b">
-                        <th class="px-4 py-2 text-left">Name</th>
-                        <th class="px-4 py-2 text-left">Image</th>
-                        <th class="px-4 py-2 text-left">Date</th>
+                        <th class="px-4 py-2 text-left">Imagem </th>
+                        <th class="px-4 py-2 text-left">Nome</th>
+                        <th class="px-4 py-2 text-left">Data de Lançamento</th>
                         <th class="px-4 py-2 text-left">Status</th>
-                        <th class="px-4 py-2 text-left">Actions</th>
+                        <th class="px-4 py-2 text-left"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($wishlists as $item)
                         <tr class="border-b">
-                            <td class="px-4 py-2">{{ $item->name }}</td>
                             <td class="px-4 py-2">
-                                @if($item->image)
-                                    <img src="{{ $item->image }}" alt="{{ $item->name }}" class="w-16 h-16 object-cover rounded">
-                                @else
-                                    N/A
-                                @endif
+                                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" class="w-20 h-20 object-cover rounded">
                             </td>
+                            <td class="px-4 py-2">{{ $item->name }}</td>
                             <td class="px-4 py-2">{{ $item->date?->format('d/m/Y') ?? 'N/A' }}</td>
                             <td class="px-4 py-2">{{ ucfirst($item->status) }}</td>
                             <td class="px-4 py-2 flex gap-3">
