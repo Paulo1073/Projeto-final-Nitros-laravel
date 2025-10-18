@@ -24,6 +24,10 @@
                 <textarea id="bio" name="bio" class="w-full p-2 border rounded" rows="4">{{ old('bio', $friend->bio) }}</textarea>
 
                 <x-primary-button class="w-[110px] mt-2">Atualizar</x-primary-button>
+                <a href="{{ route('friends.index') }}" 
+                   class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 text-gray-800">
+                    Voltar
+                </a>
             </form>
 
         

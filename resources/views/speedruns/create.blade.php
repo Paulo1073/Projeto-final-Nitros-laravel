@@ -39,6 +39,10 @@
             </select>
 
             <x-primary-button class="hover:bg-purple-800 mt-4 w-[160px]">Salvar Speedrun</x-primary-button>
+            <a href="{{ route('speedruns.index') }}" 
+                   class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 text-gray-800">
+                    Voltar
+                </a>
         </form>
     </div>
 

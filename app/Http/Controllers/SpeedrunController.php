@@ -8,12 +8,9 @@ use Illuminate\Http\Request;
 
 class SpeedrunController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        // Carrega o relacionamento com Game
+
         $speedruns = Speedrun::with('game')->get();
         return view('speedruns.index', compact('speedruns'));
     }
@@ -40,39 +37,32 @@ class SpeedrunController extends Controller
             'mode' => $request->mode,
         ]);
 
-        return redirect()->route('speedruns.index')->with('success', 'Speedrun criado com sucesso!');
+        return redirect()->route('speedruns.index')->with('success', 'Speedrun cadastrada com sucesso!');
     }
 
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Speedrun $speedrun)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Speedrun $speedrun)
     {
-        //
+        $games = Game::all();
+        return view('speedruns.edit', compact('speedrun', 'games'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Speedrun $speedrun)
     {
-        //
+        $request->validate([
+            'game_id' => 'required|exists:games,id',
+            'time' => 'required',
+            'date' => 'required|date',
+            'mode' => 'required|string|max:50',
+        ]);
+
+        $speedrun->update($request->all());
+
+        return redirect()->route('speedruns.index')->with('success', 'Speedrun atualizada com sucesso!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Speedrun $speedrun)
     {
-        //
+        $speedrun->delete();
+        return redirect()->route('speedruns.index')->with('success', 'Speedrun excluída com sucesso!');
     }
 }

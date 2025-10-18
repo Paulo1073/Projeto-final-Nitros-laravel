@@ -22,6 +22,10 @@
                 <x-input-error :messages="$errors->get('bio')" class="mt-1" />
 
                 <x-primary-button class="w-[120px] mt-2">Salvar</x-primary-button>
+                <a href="{{ route('friends.index') }}" 
+                   class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 text-gray-800">
+                    Voltar
+                </a>
             </form>
         </div>
     </div>
