@@ -12,7 +12,8 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        //
+        $wishlists = Wishlist::all();
+        return view('wishlists.index', compact('wishlists'));
     }
 
     /**
@@ -20,7 +21,7 @@ class WishlistController extends Controller
      */
     public function create()
     {
-        //
+        return view('wishlists.create');
     }
 
     /**
@@ -28,7 +29,24 @@ class WishlistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'date' => 'nullable|date',
+            'status' => 'required|in:desired,purchased',
+        ]);
+        
+        $imagePath = $request->file('image')->store('wishlists', 'public');
+
+
+        Wishlist::create([
+            'name' => $validated['name'],
+            'date' => $validated['date'],
+            'status' => $validated['status'],
+            'image' => $imagePath,
+        ]);
+
+        return redirect()->route('wishlists.index')->with('success', 'Game added to wishlist!');
     }
 
     /**

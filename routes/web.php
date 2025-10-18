@@ -6,6 +6,7 @@ use App\Http\Controllers\FriendController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReminderController;
 use App\Http\Controllers\SpeedrunController;
+use App\Http\Controllers\WishlistController;
 
 Route::get('/', function () {
     return view('home');
