@@ -12,7 +12,7 @@
         <link rel="manifest" href="{{ asset('assets/favicons/site.webmanifest') }}" />
         <title>Nitros</title>
     </head>
-    <body>
+    <body class="m-o p-0 box-border" >
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl ml-10 text-gray-800 leading-tight">
@@ -21,7 +21,7 @@
         </x-slot>
          @vite(['resources/css/app.css', 'resources/js/app.js'])
         <x-banner/>
-        <div class="h-160" >
+        <div class="h-160">
 
         </div>
     </x-app-layout>
