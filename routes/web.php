@@ -57,5 +57,11 @@ route::get('/speedruns/{speedrun}/edit', [SpeedrunController::class, 'edit'])->n
 route::put('/speedruns/{speedrun}', [SpeedrunController::class, 'update'])->name('speedruns.update');
 route::delete('/speedruns/{speedrun}', [SpeedrunController::class, 'destroy'])->name('speedruns.destroy');
 
-
+//WISHLISTS CRUD
+route::get('/wishlists', [WishlistController::class, 'index'])->name('wishlists.index');
+route::get('/wishlists/create', [WishlistController::class, 'create'])->name('wishlists.create');
+route::post('/wishlists', [WishlistController::class, 'store'])->name('wishlists.store');
+route::get('/wishlists/{wishlist}/edit', [WishlistController::class, 'edit'])->name('wishlists.edit');
+route::put('/wishlists/{wishlist}', [WishlistController::class, 'update'])->name('wishlists.update');
+route::delete('/wishlists/{wishlist}', [WishlistController::class, 'destroy'])->name('wishlists.destroy');
 
