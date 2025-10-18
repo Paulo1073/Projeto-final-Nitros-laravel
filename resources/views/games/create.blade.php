@@ -27,7 +27,7 @@
             <input class="" type="file" name="imagem" required />
 
             <x-primary-button class=" text-center hover:bg-purple-900 mt-4  w-[115px]" >Cadastrar</x-primary-button>
-            <a href="{{ route('Games.index') }}" 
+            <a href="{{ route('games.index') }}" 
                    class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 text-gray-800">
                     Voltar
                 </a>

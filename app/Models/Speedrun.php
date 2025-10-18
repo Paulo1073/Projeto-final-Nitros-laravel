@@ -13,7 +13,11 @@ class Speedrun extends Model
         'date',
     ];
 
-    // Relacionamento com Game
+ 
+    protected $casts = [
+        'date' => 'date',
+    ];
+
     public function game()
     {
         return $this->belongsTo(Game::class);
