@@ -32,6 +32,10 @@
                         {{ __('Speedruns') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('wishlists.index')" :active="request()->routeIs('wishlists.index')">
+                        {{ __('Lista de Desejos') }}
+                    </x-nav-link>
+
                 
                 </div>
             </div>
