@@ -1,4 +1,4 @@
-<div class="relative w-[1477px] mx-auto h-[572px] overflow-hidden  ">
+<div class="relative w-[1477px] mx-auto h-[572px]  overflow-hidden  ">
     <!-- Slides -->
     <div class="absolute inset-0 transition-opacity duration-1000 opacity-100" id="slide1">
         <img src="{{ asset('assets/images/4.png') }}" class="w-full h-full object-cover" alt="Banner 1">

@@ -14,10 +14,10 @@
     </head>
     <body class="  m-o p-0 box-border" >
     <x-app-layout>
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl ml-10 text-gray-800 leading-tight">
-                {{ __('Dashboard') }}
-            </h2>
+        <x-slot name="header"  >
+                <h2 class=" font-semibold text-xl ml-10 text-white leading-tight">
+                    {{ __('Dashboard') }}
+                </h2>
         </x-slot>
          @vite(['resources/css/app.css', 'resources/js/app.js'])
         <x-banner/>

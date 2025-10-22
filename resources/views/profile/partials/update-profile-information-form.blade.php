@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data" >
         @csrf
         @method('patch')
 
@@ -46,6 +46,31 @@
                 </div>
             @endif
         </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <label class="block text-sm font-medium text-gray-700">Profile Picture</label>
+            <div class="mt-2 flex items-center gap-4">
+                <img id="avatarPreview" 
+                    src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('assets/images/default-avatar.png') }}" 
+                    class="w-16 h-16 rounded-full object-cover border border-gray-300" />
+
+                <input type="file" name="avatar" id="avatarInput" accept="image/*" 
+                    class="text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md 
+                            file:border-0 file:text-sm file:font-semibold 
+                            file:bg-purple-600 file:text-white hover:file:bg-purple-700" />
+            </div>
+        </div>
+
+        <script>
+
+            document.getElementById('avatarInput')?.addEventListener('change', (e) => {
+                const [file] = e.target.files;
+                if (file) {
+                    document.getElementById('avatarPreview').src = URL.createObjectURL(file);
+                }
+            });
+        </script>
+
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
