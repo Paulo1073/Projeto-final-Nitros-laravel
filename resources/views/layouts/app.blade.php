@@ -15,11 +15,13 @@
     
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="{{asset('assets/css/games.css')}}" />
 
         
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="m-0 bg-gray-900 min-h-screen text-white">
+
         <div class="min-h-screen bg-white  ">
             @include('layouts.navigation')
 
@@ -33,7 +35,7 @@
             @endisset
 
 
-            <main>
+            <main class="" >
                 {{ $slot }}
             </main>
         </div>
