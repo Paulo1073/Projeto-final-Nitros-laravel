@@ -134,7 +134,7 @@
                             </a>
 
                             <a id="openpop6" href="#" class="group relative flex-1 transition-all duration-500 ease-in-out hover:basis-[60%] block">
-                                <img src="https://img.freepik.com/premium-photo/professional-gamer-participates-team-play-computer-club_362389-5773.jpg" 
+                                <img src="https://tse2.mm.bing.net/th/id/OIP.-nM8FvYMTvNs-dCqyR7zPQHaE8?w=1024&h=683&rs=1&pid=ImgDetMain&o=7&rm=3" 
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
                                 
                                 <span class="absolute bottom-6 left-6 text-white text-2xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500">

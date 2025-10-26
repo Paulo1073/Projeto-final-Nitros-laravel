@@ -20,7 +20,7 @@
         
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="m-0 bg-gray-900 min-h-screen text-white">
+    <body class="m-0 overflow-hidden bg-gray-900 min-h-screen text-white">
 
         <div class="min-h-screen bg-white  ">
             @include('layouts.navigation')

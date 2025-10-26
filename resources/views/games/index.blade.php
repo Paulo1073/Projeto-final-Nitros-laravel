@@ -12,7 +12,7 @@
     </x-slot>
 
 
-    <div class="min-h-screen bg-gray-900 flex flex-col">
+    <div class="min-h-screen  bg-gray-900 flex flex-col">
         <div class="flex-1 bg-gray-900 pt-4">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 @if(session('success'))
@@ -51,7 +51,7 @@
                                         <td class="px-6 py-3 text-gray-300">{{ $game->genero }}</td>
                                         <td class="px-6 py-3 text-gray-300">{{ $game->plataforma }}</td>
                                         <td class="px-6 py-3 text-gray-400 whitespace-pre-wrap">{{ $game->descricao }}</td>
-                                        <td class="px-6 py-3 flex items-center gap-3">
+                                        <td class="px-6 py-3 mt-4 flex items-center gap-3">
                                             <a href="{{ route('games.edit', $game->id) }}" 
                                             class="px-3 py-1.5 bg-gradient-to-r from-blue-700 to-blue-800 
                                                    hover:from-blue-600 hover:to-blue-700 text-white 
