@@ -13,9 +13,8 @@ class GameController extends Controller
      */
     public function index()
     {
-  
-        $games = Game::all();
 
+        $games = Game::all();
 
         return view('games.index', compact('games'));
     }
@@ -33,7 +32,7 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-  
+
         $validated = $request->validate([
             'titulo' => 'required|string|max:255',
             'genero' => 'required|string|max:100',
@@ -50,12 +49,11 @@ class GameController extends Controller
             'descricao' => $validated['descricao'],
             'plataforma' => $validated['plataforma'],
             'imagem' => $imagePath,
-            'user_id' => Auth::id(), 
+            'user_id' => Auth::id(),
         ]);
 
-
         return redirect()->route('games.index')->with('success', 'Jogo cadastrado com sucesso!');
-    
+
     }
 
     /**
@@ -80,24 +78,24 @@ class GameController extends Controller
     public function update(Request $request, game $game)
     {
         $validated = $request->validate([
-        'titulo' => 'required|string|max:255',
-        'genero' => 'required|string|max:100',
-        'descricao' => 'required|string',
-        'plataforma' => 'required|string|max:100',
-        'imagem' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
+            'titulo' => 'required|string|max:255',
+            'genero' => 'required|string|max:100',
+            'descricao' => 'required|string',
+            'plataforma' => 'required|string|max:100',
+            'imagem' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-    if ($request->hasFile('imagem')) {
-        $imagePath = $request->file('imagem')->store('games', 'public');
-        $game->imagem = $imagePath;
-    }
+        if ($request->hasFile('imagem')) {
+            $imagePath = $request->file('imagem')->store('games', 'public');
+            $game->imagem = $imagePath;
+        }
 
-    $game->update([
-        'titulo' => $validated['titulo'],
-        'genero' => $validated['genero'],
-        'descricao' => $validated['descricao'],
-        'plataforma' => $validated['plataforma'],
-    ]);
+        $game->update([
+            'titulo' => $validated['titulo'],
+            'genero' => $validated['genero'],
+            'descricao' => $validated['descricao'],
+            'plataforma' => $validated['plataforma'],
+        ]);
 
         return redirect()->route('games.index')->with('success', 'Game atualizado com sucesso!');
     }
@@ -108,6 +106,7 @@ class GameController extends Controller
     public function destroy(game $game)
     {
         $game->delete();
+
         return redirect()->route('games.index')->with('success', 'Game deletado com sucesso!');
     }
 }

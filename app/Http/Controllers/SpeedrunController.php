@@ -11,12 +11,14 @@ class SpeedrunController extends Controller
     public function index()
     {
         $speedruns = Speedrun::with('game')->get();
+
         return view('speedruns.index', compact('speedruns'));
     }
 
     public function create()
     {
         $games = Game::all();
+
         return view('speedruns.create', compact('games'));
     }
 
@@ -29,7 +31,7 @@ class SpeedrunController extends Controller
             'mode' => 'required|string|max:50',
         ]);
 
-        Speedrun::create($request->only('game_id','time','date','mode'));
+        Speedrun::create($request->only('game_id', 'time', 'date', 'mode'));
 
         return redirect()->route('speedruns.index')->with('success', 'Speedrun cadastrada com sucesso!');
     }
@@ -37,6 +39,7 @@ class SpeedrunController extends Controller
     public function edit(Speedrun $speedrun)
     {
         $games = Game::all();
+
         return view('speedruns.edit', compact('speedrun', 'games'));
     }
 
@@ -49,7 +52,7 @@ class SpeedrunController extends Controller
             'mode' => 'required|string|max:50',
         ]);
 
-        $speedrun->update($request->only('game_id','time','date','mode'));
+        $speedrun->update($request->only('game_id', 'time', 'date', 'mode'));
 
         return redirect()->route('speedruns.index')->with('success', 'Speedrun atualizada com sucesso!');
     }
@@ -57,6 +60,7 @@ class SpeedrunController extends Controller
     public function destroy(Speedrun $speedrun)
     {
         $speedrun->delete();
+
         return redirect()->route('speedruns.index')->with('success', 'Speedrun excluída com sucesso!');
     }
 }

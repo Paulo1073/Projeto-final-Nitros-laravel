@@ -1,17 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public function up(): void
     {
         Schema::table('speedruns', function (Blueprint $table) {
-            if (!Schema::hasColumn('speedruns', 'user_id')) {
+            if (! Schema::hasColumn('speedruns', 'user_id')) {
                 $table->foreignId('user_id')
-                      ->constrained()
-                      ->onDelete('cascade'); 
+                    ->constrained()
+                    ->onDelete('cascade');
             }
         });
     }

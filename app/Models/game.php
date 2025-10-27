@@ -15,7 +15,7 @@ class Game extends Model
         'descricao',
         'plataforma',
         'imagem',
-        'user_id'
-        
+        'user_id',
+
     ];
 }

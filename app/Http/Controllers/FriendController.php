@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Friend;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class FriendController extends Controller
 {
@@ -14,6 +14,7 @@ class FriendController extends Controller
     public function index()
     {
         $friends = Friend::all();
+
         return view('friends.index', compact('friends'));
     }
 
@@ -23,6 +24,7 @@ class FriendController extends Controller
     public function create()
     {
         $users = User::where('id', '!=', auth()->id())->get();
+
         return view('friends.create', compact('users'));
     }
 
@@ -33,7 +35,7 @@ class FriendController extends Controller
     {
 
         $validated = $request->validate([
-            'user_id' => 'required|exists:users,id|not_in:' . auth()->id(), 
+            'user_id' => 'required|exists:users,id|not_in:'.auth()->id(),
             'bio' => 'nullable|string',
         ]);
 
@@ -47,7 +49,6 @@ class FriendController extends Controller
         ]);
 
         return redirect()->route('friends.index')->with('success', 'Amigo adicionado com sucesso!');
-
 
     }
 
@@ -65,6 +66,7 @@ class FriendController extends Controller
     public function edit(Friend $friend)
     {
         $users = \App\Models\User::where('id', '!=', auth()->id())->get();
+
         return view('friends.edit', compact('friend', 'users'));
     }
 
@@ -74,7 +76,7 @@ class FriendController extends Controller
     public function update(Request $request, Friend $friend)
     {
         $validated = $request->validate([
-            'user_id' => 'required|exists:users,id|not_in:' . auth()->id(),
+            'user_id' => 'required|exists:users,id|not_in:'.auth()->id(),
             'bio' => 'nullable|string',
         ]);
 
@@ -95,6 +97,7 @@ class FriendController extends Controller
     public function destroy(Friend $friend)
     {
         $friend->delete();
+
         return redirect()->route('friends.index')->with('success', 'Amigo removido com sucesso!');
     }
 }

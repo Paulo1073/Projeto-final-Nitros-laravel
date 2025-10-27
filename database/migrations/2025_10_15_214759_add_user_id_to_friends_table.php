@@ -10,9 +10,9 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::table('friends', function (Blueprint $table) {
-        $table->foreignId('user_id')->after('id')->constrained()->onDelete('cascade');
-    });
-}
+    {
+        Schema::table('friends', function (Blueprint $table) {
+            $table->foreignId('user_id')->after('id')->constrained()->onDelete('cascade');
+        });
+    }
 };

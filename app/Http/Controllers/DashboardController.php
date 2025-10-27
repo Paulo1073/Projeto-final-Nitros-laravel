@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Game;
-use App\Models\Speedrun;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,9 +15,8 @@ class DashboardController extends Controller
         $userId = auth()->id();
 
         $games = Game::where('user_id', $userId)->latest()->take(10)->get();
-        
 
-        return view('dashboard', compact('games',));
+        return view('dashboard', compact('games'));
     }
 
     /**

@@ -23,7 +23,7 @@ class User extends Authenticatable
         'bio',
         'email',
         'password',
-        'avatar'
+        'avatar',
     ];
 
     /**
@@ -32,7 +32,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password'
+        'password',
     ];
 
     /**

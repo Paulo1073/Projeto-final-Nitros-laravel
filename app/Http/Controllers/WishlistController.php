@@ -10,6 +10,7 @@ class WishlistController extends Controller
     public function index()
     {
         $wishlists = Wishlist::all();
+
         return view('wishlists.index', compact('wishlists'));
     }
 
@@ -70,6 +71,7 @@ class WishlistController extends Controller
     public function destroy(Wishlist $wishlist)
     {
         $wishlist->delete();
+
         return redirect()->route('wishlists.index')->with('success', 'Wishlist item deleted!');
     }
 }

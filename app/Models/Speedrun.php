@@ -13,7 +13,6 @@ class Speedrun extends Model
         'date',
     ];
 
- 
     protected $casts = [
         'date' => 'date',
     ];

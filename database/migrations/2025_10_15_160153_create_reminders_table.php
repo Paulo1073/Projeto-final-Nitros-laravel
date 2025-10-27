@@ -10,11 +10,11 @@ return new class extends Migration
     {
         Schema::create('reminders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('game_id')->constrained('games')->onDelete('cascade'); 
-            $table->string('titulo')->nullable(); 
-            $table->text('descricao'); 
-            $table->boolean('concluido')->default(false); 
-            $table->timestamps(); 
+            $table->foreignId('game_id')->constrained('games')->onDelete('cascade');
+            $table->string('titulo')->nullable();
+            $table->text('descricao');
+            $table->boolean('concluido')->default(false);
+            $table->timestamps();
         });
     }
 

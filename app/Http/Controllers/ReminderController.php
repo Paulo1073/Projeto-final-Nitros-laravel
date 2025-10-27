@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reminder;
 use App\Models\Game;
+use App\Models\Reminder;
 use Illuminate\Http\Request;
 
 class ReminderController extends Controller
@@ -14,6 +14,7 @@ class ReminderController extends Controller
     public function index()
     {
         $reminders = Reminder::with('game')->get();
+
         return view('reminders.index', compact('reminders'));
     }
 
@@ -23,6 +24,7 @@ class ReminderController extends Controller
     public function create()
     {
         $games = Game::all();
+
         return view('reminders.create', compact('games'));
     }
 
@@ -52,6 +54,7 @@ class ReminderController extends Controller
     public function edit(Reminder $reminder)
     {
         $games = Game::all();
+
         return view('reminders.edit', compact('reminder', 'games'));
     }
 
@@ -78,6 +81,7 @@ class ReminderController extends Controller
     public function destroy(Reminder $reminder)
     {
         $reminder->delete();
+
         return redirect()->route('reminders.index')->with('success', 'Lembrete excluído com sucesso!');
     }
 }
