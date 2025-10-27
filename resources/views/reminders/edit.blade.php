@@ -1,42 +1,90 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="ml-6 font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Editar Lembrete') }}
-        </h2>
+        <div class="flex justify-between items-center">
+            <h2 class="font-semibold text-xl ml-6 text-purple-400 tracking-wide">
+                {{ __('Editar Lembrete') }}
+            </h2>
+        </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
-            <form action="{{ route('reminders.update', $reminder->id) }}" method="POST" class="flex flex-col gap-4">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <div class="flex min-h-screen bg-gray-950">
+        <!-- Imagem lateral -->
+        <div class="hidden md:block bg-center bg-cover w-[1000px] h-[570px] border-r border-gray-800 shadow-2xl"
+             style="background-image: url('{{ asset('assets/images/gameroption1.png') }}');">
+        </div>
+
+        <!-- Formulário -->
+        <div class="flex flex-col justify-center ml-[40px] mt-[20px] mb-64">
+            <x-application-logo-2 class="w-[100px] h-[100px] ml-[160px] fill-current text-gray-500" />
+
+            <form action="{{ route('reminders.update', $reminder->id) }}" method="POST" class="space-y-5">
                 @csrf
                 @method('PUT')
 
-                <x-input-label for="titulo" :value="__('Título')" />
-                <x-text-input id="titulo" name="titulo" class="w-full" :value="$reminder->titulo" />
+                <div class="flex gap-6">
+                    <div class="flex-col">
+                        <!-- Título -->
+                        <div>
+                            <x-input-label for="titulo" :value="__('Título do Lembrete')" class="text-violet-700 mb-1" />
+                            <x-text-input id="titulo" name="titulo" :value="old('titulo', $reminder->titulo)" required
+                                class="w-46 bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
+                                       focus:ring-2 focus:ring-purple-700 focus:border-purple-700" />
+                        </div>
 
-                <x-input-label for="descricao" :value="__('Descrição')" />
-                <textarea id="descricao" name="descricao" rows="4" class="w-full p-2 border rounded">{{ $reminder->descricao }}</textarea>
+                        <!-- Jogo -->
+                        <div class="mt-[10px]">
+                            <x-input-label for="game_id" :value="__('Jogo')" class="text-violet-700 mb-1" />
+                            <select id="game_id" name="game_id" required
+                                class="pl-2 w-46 h-8 bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
+                                       focus:ring-2 focus:ring-purple-700 focus:border-purple-700">
+                                @foreach($games as $game)
+                                    <option value="{{ $game->id }}" 
+                                        {{ old('game_id', $reminder->game_id) == $game->id ? 'selected' : '' }}>
+                                        {{ $game->titulo }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
 
-                <x-input-label for="game_id" :value="__('Jogo')" />
-                <select id="game_id" name="game_id" class="w-full p-2 border rounded">
-                    @foreach($games as $game)
-                        <option value="{{ $game->id }}" @selected($reminder->game_id == $game->id)>{{ $game->titulo }}</option>
-                    @endforeach
-                </select>
+                        <!-- Concluído -->
+                        <div class="mt-[10px]">
+                            <x-input-label for="concluido" :value="__('Concluído')" class="text-violet-700 mb-1" />
+                            <select id="concluido" name="concluido" required
+                                class="pl-2 w-46 h-8 bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
+                                       focus:ring-2 focus:ring-purple-700 focus:border-purple-700">
+                                <option value="0" {{ old('concluido', $reminder->concluido) == 0 ? 'selected' : '' }}>Não</option>
+                                <option value="1" {{ old('concluido', $reminder->concluido) == 1 ? 'selected' : '' }}>Sim</option>
+                            </select>
+                        </div>
+                    </div>
 
-                <x-input-label for="concluido" :value="__('Concluído')" />
-                <select id="concluido" name="concluido" class="w-full p-2 border rounded">
-                    <option value="0" @selected(!$reminder->concluido)>Não</option>
-                    <option value="1" @selected($reminder->concluido)>Sim</option>
-                </select>
+                    <!-- Descrição -->
+                    <div>
+                        <x-input-label for="descricao" :value="__('Descrição')" class="text-violet-700 mb-1" />
+                        <textarea id="descricao" name="descricao" rows="4"
+                            class="w-[220px] h-[110px] bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
+                                   p-2 focus:ring-2 focus:ring-purple-700 focus:border-purple-700 resize-none">{{ old('descricao', $reminder->descricao) }}</textarea>
+                    </div>
+                </div>
 
-                <x-primary-button class=" hover:bg-purple-900 mt-4 w-[110px]">Atualizar</x-primary-button>
-                <a href="{{ route('reminders.index') }}" 
-                   class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 text-gray-800">
-                    Voltar
-                </a>
+                <!-- Botões -->
+                <div class="flex items-center justify-between pt-6">
+                    <x-primary-button
+                        class="px-6 py-2 bg-gradient-to-r from-violet-700 to-violet-900 
+                               hover:from-purple-700 hover:to-purple-800 text-white 
+                               rounded-lg shadow-md transition-all duration-200">
+                        Atualizar
+                    </x-primary-button>
+
+                    <a href="{{ route('reminders.index') }}" 
+                       class="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg 
+                              hover:bg-gray-900 hover:text-white transition-colors duration-200">
+                        Voltar
+                    </a>
+                </div>
             </form>
-
         </div>
     </div>
 </x-app-layout>
