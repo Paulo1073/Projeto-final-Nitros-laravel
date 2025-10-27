@@ -10,7 +10,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <div class="flex min-h-screen bg-gray-950">
-        <!-- Imagem lateral -->
+    
         <div class="hidden md:block bg-center bg-cover w-[1000px] h-[570px] border-r border-gray-800 shadow-2xl"
              style="background-image: url('{{ asset('assets/images/gameroption3.png') }}');">
         </div>
