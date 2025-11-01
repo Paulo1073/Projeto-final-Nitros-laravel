@@ -16,7 +16,7 @@
         </div>
 
        
-        <div class="flex flex-col justify-center ml-32 mt-[20px] mb-64">
+        <div class="flex flex-col justify-center ml-[40px] mt-[20px] mb-64">
             <x-application-logo-2 class="w-[100px] h-[100px] ml-[80px] fill-current text-gray-500" />
 
             <form action="{{ route('friends.store') }}" method="POST" class="space-y-6">

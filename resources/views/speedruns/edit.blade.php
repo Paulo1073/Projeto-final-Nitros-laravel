@@ -17,7 +17,7 @@
         </div>
 
         <!-- Formulário -->
-        <div class="flex flex-col justify-center ml-32 mt-[20px] mb-64">
+        <div class="flex flex-col justify-center ml-[40px] mt-[20px] mb-64">
             <x-application-logo-2 class="w-[100px] h-[100px] ml-[75px] fill-current text-gray-500" />
 
             <form action="{{ route('speedruns.update', $speedrun->id) }}" method="POST" class="space-y-6">
@@ -79,7 +79,7 @@
                         class="px-6 py-2 bg-gradient-to-r from-violet-700 to-violet-900 
                                hover:from-purple-700 hover:to-purple-800 text-white 
                                rounded-lg shadow-md transition-all duration-200">
-                        Atualizar Speedrun
+                        Atualizar
                     </x-primary-button>
 
                     <a href="{{ route('speedruns.index') }}" 

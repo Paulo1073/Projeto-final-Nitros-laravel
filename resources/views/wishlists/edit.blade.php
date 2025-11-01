@@ -17,7 +17,7 @@
         </div>
 
         <!-- Formulário -->
-        <div class="flex flex-col justify-center ml-16 mt-[8px] mb-32">
+        <div class="flex flex-col justify-center ml-[60px] mr-[20px] mt-[8px] mb-32">
             <x-application-logo-2 class="w-[100px] h-[100px] ml-[140px] fill-current text-gray-500" />
 
             <form action="{{ route('wishlists.update', $wishlist->id) }}" method="POST" enctype="multipart/form-data"
@@ -70,7 +70,7 @@
                     <!-- Coluna da imagem atual -->
                     <div class="flex flex-col space-y-4 items-center justify-center">
                         @if ($wishlist->image)
-                            <div class="flex flex-col items-center">
+                            <div class="flex flex-col w-[100px] h-[100px] items-center">
                                 <span class="text-gray-400 text-sm mb-1">Imagem atual:</span>
                                 <img src="{{ asset('storage/' . $wishlist->image) }}" alt="{{ $wishlist->name }}"
                                      class="w-[100px] h-[100px] object-cover rounded-lg border border-purple-800/40 shadow-lg">
