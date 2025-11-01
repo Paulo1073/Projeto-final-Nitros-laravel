@@ -27,7 +27,7 @@
 
   
             @isset($header)
-                <header class=" bg-gray-900 border-b-2 border-b-purple-800 bg-whiteshadow">
+                <header class=" bg-[#070707] border-b-2 border-b-purple-800 bg-whiteshadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
@@ -35,7 +35,7 @@
             @endisset
 
 
-            <main class="" >
+            <main class="bg-[#070707]" >
                 {{ $slot }}
             </main>
         </div>
