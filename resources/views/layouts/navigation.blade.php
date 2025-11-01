@@ -1,136 +1,120 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
-    <div class=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo-3 class="  mr-16 block  " />
-                    </a>
-                </div>
+<nav x-data="{ open: false }" 
+     class="fixed top-0 left-0 h-screen w-64 bg-[#070707] border-r border-[#1F1F1F] flex flex-col z-50 text-white">
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('games.index')" :active="request()->routeIs('games.index')">
-                        {{ __('Games') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('reminders.index')" :active="request()->routeIs('reminders.index')">
-                        {{ __('Lembretes') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('friends.index')" :active="request()->routeIs('reminders.index')">
-                        {{ __('Amigos') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('speedruns.index')" :active="request()->routeIs('reminders.index')">
-                        {{ __('Speedruns') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('wishlists.index')" :active="request()->routeIs('wishlists.index')">
-                        {{ __('Lista de Desejos') }}
-                    </x-nav-link>
-
-                
-                </div>
-            </div>
-
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
-              
-                
-                <x-dropdown align="right" width="48">
-                    <x-slot  name="trigger">
-                        <div class="flex items-center">
-                    <button 
-                        class="inline-flex items-center gap-2 px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-
-                      
-                        <div class="relative w-10 h-10 rounded-full  overflow-hidden">
-                            <img 
-                                src="{{ Auth::user()->avatar ? asset('storage/' . Auth::user()->avatar) : asset('assets/images/default-avatar.png') }}" 
-                                alt="User Avatar" 
-                                class="w-full h-full object-cover"
-                            >
-                        </div>
-
-                        
-                        <span class="text-xs" >{{ Auth::user()->name }}</span>
-
-                        
-
-                    </button>
-                </div>
-
-                    </x-slot>
-
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
-
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </x-slot>
-                </x-dropdown>
-            </div>
-
-            <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+    
+    <div class="p-4 border-b border-[#1F1F1F]">
+        <x-dropdown align="right" width="48">
+            <x-slot name="trigger">
+                <button 
+                    class="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-[#121212] rounded-md transition">
+                    <div class="relative w-10 h-10 rounded-full overflow-hidden border border-gray-700">
+                        <img 
+                            src="{{ Auth::user()->avatar ? asset('storage/' . Auth::user()->avatar) : asset('assets/images/default-avatar.png') }}" 
+                            alt="User Avatar" 
+                            class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-sm font-semibold truncate">{{ Auth::user()->name }}</span>
                 </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+            </x-slot>
+    
+            <x-slot name="content">
+                <x-dropdown-link :href="route('profile.edit')">
                     {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
+                </x-dropdown-link>
+    
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
+                    <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault(); this.closest('form').submit();">
                         {{ __('Log Out') }}
-                    </x-responsive-nav-link>
+                    </x-dropdown-link>
                 </form>
+            </x-slot>
+        </x-dropdown>
+    </div>
+    
+    
+    <div class="flex-1 overflow-y-auto mt-4 px-2">
+        <ul class="space-y-1">
+            <li>
+                <a href="{{ route('dashboard') }}" 
+                   class="flex items-center gap-3 px-3 py-2 rounded-md transition 
+                          {{ request()->routeIs('dashboard') ? 'bg-[#181818]' : 'hover:bg-[#121212]' }}">
+                    <img src="{{ asset('assets/favicons/botao-de-inicio.png') }}" class="w-5 h-5 opacity-80" alt="">
+                    <span class="text-sm font-medium">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('games.index') }}" 
+                   class="flex items-center gap-3 px-3 py-2 rounded-md transition 
+                          {{ request()->routeIs('games.index') ? 'bg-[#181818]' : 'hover:bg-[#121212]' }}">
+                    <img src="{{ asset('assets/favicons/controle.png') }}" class="w-5 h-5 opacity-80" alt="">
+                    <span class="text-sm font-medium">Games</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('reminders.index') }}" 
+                   class="flex items-center gap-3 px-3 py-2 rounded-md transition 
+                          {{ request()->routeIs('reminders.index') ? 'bg-[#181818]' : 'hover:bg-[#121212]' }}">
+                    <img src="{{ asset('assets/favicons/notificacao.png') }}" class="w-5 h-5 opacity-80" alt="">
+                    <span class="text-sm font-medium">Lembretes</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('friends.index') }}" 
+                   class="flex items-center gap-3 px-3 py-2 rounded-md transition 
+                          {{ request()->routeIs('friends.index') ? 'bg-[#181818]' : 'hover:bg-[#121212]' }}">
+                    <img src="{{ asset('assets/favicons/amigos.png') }}" class="w-5 h-5 opacity-80" alt="">
+                    <span class="text-sm font-medium">Amigos</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('speedruns.index') }}" 
+                   class="flex items-center gap-3 px-3 py-2 rounded-md transition 
+                          {{ request()->routeIs('speedruns.index') ? 'bg-[#181818]' : 'hover:bg-[#121212]' }}">
+                    <img src="{{ asset('assets/favicons/relogio.png') }}" class="w-5 h-5 opacity-80" alt="">
+                    <span class="text-sm font-medium">Speedruns</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('wishlists.index') }}" 
+                   class="flex items-center gap-3 px-3 py-2 rounded-md transition 
+                          {{ request()->routeIs('wishlists.index') ? 'bg-[#181818]' : 'hover:bg-[#121212]' }}">
+                    <img src="{{ asset('assets/favicons/lista-de-controle.png') }}" class="w-5 h-5 opacity-80" alt="">
+                    <span class="text-sm font-medium">Lista de Desejos</span>
+                </a>
+            </li>
+        </ul>
+
+        
+        <div class="mt-6 border-t border-[#1F1F1F] pt-4">
+            <div class="flex items-center justify-between px-3 mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">
+                <span>Biblioteca</span>
+                <a href="{{ route('games.create') }}" 
+                   class="text-violet-500 hover:text-violet-400 text-base leading-none">+</a>
+            </div>
+
+            
+            <div class="space-y-2 px-1 overflow-y-auto max-h-[300px] pr-1">
+                @forelse($games as $game)
+                    <a href="{{ route('games.index') }}"
+                       class="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-[#121212] transition cursor-pointer">
+                        <img src="{{ asset('storage/' . $game->imagem) }}" 
+                             alt="{{ $game->titulo }}" 
+                             class="w-6 h-6 object-cover rounded">
+                        <span class="text-sm text-gray-200 truncate">{{ $game->titulo }}</span>
+                    </a>
+                @empty
+                    <p class="text-xs text-gray-500 px-3">Nenhum jogo</p>
+                @endforelse
             </div>
         </div>
     </div>
 </nav>
+
+<!-- Conteúdo principal -->
+<div class="ml-64 bg-[#0B0B0B] min-h-screen text-white">
+    <main class="p-6">
+        {{ $slot ?? '' }}
+    </main>
+</div>

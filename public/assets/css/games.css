@@ -1,6 +1,7 @@
 
 ::-webkit-scrollbar {
-  width: 15px;              
+  width: 5px;
+               
 }
 
 ::-webkit-scrollbar-track {
@@ -10,9 +11,11 @@
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #7e22ce, #4c1d95); 
-  border-radius: 10px;  
+  border-radius: 10px; 
+  
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #9333ea, #6b21a8);
+  
 }
