@@ -1,4 +1,4 @@
-1. Estilização do Profile
-2. Transformar tudo em inglês
-3. Reponsividade
-4. Terminar a dashboard
+1. Estilização do Profile [v]
+2. Transformar tudo em inglês [x]
+3. Reponsividade [x]
+4. Terminar a dashboard [x]
