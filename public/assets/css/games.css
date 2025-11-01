@@ -17,5 +17,9 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #9333ea, #6b21a8);
+  cursor:grab;
   
+}
+::-webkit-scrollbar-thumb:active {
+  cursor: grabbing;
 }
