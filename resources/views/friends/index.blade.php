@@ -2,11 +2,11 @@
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl ml-6 text-purple-400 tracking-wide">
-                {{ __('Meus Amigos') }}
+                {{ __('My Friends') }}
             </h2>
             <a href="{{ route('friends.create') }}" 
                class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-violet-700 transition-colors">
-                Adicionar Amigo
+                Add Friends
             </a>
         </div>
     </x-slot>
@@ -29,8 +29,8 @@
                             <thead class="bg-[#070707] border-b-2 border-purple-700 sticky top-0 z-10 backdrop-blur-md">
                                 <tr>
                                     <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Nickname</th>
-                                    <th class="pl-[200px] text-left font-semibold tracking-wider text-purple-100">Bio</th>
-                                    <th class="pl-[90px] text-left font-semibold tracking-wider text-purple-100">Ações</th>
+                                    <th class="pl-[190px] text-left font-semibold tracking-wider text-purple-100">Description</th>
+                                    <th class="pl-[90px] text-left font-semibold tracking-wider text-purple-100">Actions</th>
                                 </tr>
                             </thead>
 
@@ -48,7 +48,7 @@
                                                class="px-3 py-1.5 bg-gradient-to-r from-blue-700 to-blue-800 
                                                       hover:from-blue-600 hover:to-blue-700 text-white 
                                                       rounded-lg shadow-md transition-all duration-200 flex items-center gap-1">
-                                                ✏️ Editar
+                                                ✏️ Edit
                                             </a>
 
                                             <form action="{{ route('friends.destroy', $friend) }}" method="POST" 
@@ -59,7 +59,7 @@
                                                     class="px-3 py-1.5 bg-gradient-to-r from-purple-800 to-purple-900 
                                                            hover:from-purple-700 hover:to-purple-800 text-white 
                                                            rounded-lg shadow-md transition-all duration-200 flex items-center gap-1">
-                                                    🗑️ Excluir
+                                                    🗑️ Delete
                                                 </button>
                                             </form>
                                         </td>
@@ -67,7 +67,7 @@
                                 @empty
                                     <tr>
                                         <td colspan="3" class="px-6 py-6 text-center text-gray-500 italic">
-                                            Nenhum amigo cadastrado.
+                                            Friends not found.
                                         </td>
                                     </tr>
                                 @endforelse

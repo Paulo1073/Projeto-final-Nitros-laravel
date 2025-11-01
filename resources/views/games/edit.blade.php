@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl ml-6 text-purple-400 tracking-wide">
-                {{ __('Editar Jogo') }}
+                {{ __('Edit Game') }}
             </h2>
         </div>
     </x-slot>
@@ -30,21 +30,21 @@
                     <div class="flex flex-col space-y-4">
 
                         <div>
-                            <x-input-label for="titulo" :value="__('Nome do jogo')" class="text-violet-700 mb-1" />
+                            <x-input-label for="titulo" :value="__('Game Name')" class="text-violet-700 mb-1" />
                             <x-text-input id="titulo" name="titulo" :value="old('titulo', $game->titulo)" required
                                 class="w-[260px] bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                                        focus:ring-2 focus:ring-purple-700 focus:border-purple-700" />
                         </div>
 
                         <div>
-                            <x-input-label for="genero" :value="__('Gênero')" class="text-violet-700 mb-1" />
+                            <x-input-label for="genero" :value="__('Gender')" class="text-violet-700 mb-1" />
                             <x-text-input id="genero" name="genero" :value="old('genero', $game->genero)" required
                                 class="w-[260px] bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                                        focus:ring-2 focus:ring-purple-700 focus:border-purple-700" />
                         </div>
 
                         <div>
-                            <x-input-label for="plataforma" :value="__('Plataforma')" class="text-violet-700 mb-1" />
+                            <x-input-label for="plataforma" :value="__('Plataform')" class="text-violet-700 mb-1" />
                             <select id="plataforma" name="plataforma" required
                                 class="pl-2 w-[260px] h-9 bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                                 focus:ring-2 focus:ring-purple-700 focus:border-purple-700">
@@ -62,7 +62,7 @@
                         </div>
 
                         <div>
-                            <x-input-label for="imagem" :value="__('Nova Imagem do Jogo')" class="text-violet-700 mb-1" />
+                            <x-input-label for="imagem" :value="__('New Game Image')" class="text-violet-700 mb-1" />
                             <input type="file" name="imagem" id="imagem"
                                 class="w-[260px] text-gray-100 bg-gray-800 border border-purple-800/40 rounded-lg 
                                 file:mr-3 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm 
@@ -72,10 +72,10 @@
 
                     </div>
 
-                    <!-- Descrição + Imagem atual -->
+                   
                     <div class="flex flex-col space-y-4 items-center">
                         <div>
-                            <x-input-label for="descricao" :value="__('Descrição')" class="text-violet-700 mb-1" />
+                            <x-input-label for="descricao" :value="__('Description')" class="text-violet-700 mb-1" />
                             <textarea id="descricao" name="descricao" rows="5"
                                 class="w-[280px] h-[130px] bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg p-2 
                                        focus:ring-2 focus:ring-purple-700 focus:border-purple-700 resize-none">{{ old('descricao', $game->descricao) }}</textarea>
@@ -83,7 +83,7 @@
 
                         @if ($game->imagem)
                             <div class="flex flex-col items-center">
-                                <span class="text-gray-400 text-sm mb-1">Imagem atual:</span>
+                                <span class="text-gray-400 text-sm mb-1">Current Image:</span>
                                 <img src="{{ asset('storage/' . $game->imagem) }}" alt="{{ $game->titulo }}"
                                     class="w-[100px] h-[100px] object-cover rounded-lg border border-purple-800/40 shadow-lg">
                             </div>
@@ -97,13 +97,13 @@
                         class="px-6 py-2 bg-gradient-to-r from-violet-700 to-violet-900 
                                 hover:from-purple-700 hover:to-purple-800 text-white 
                                 rounded-lg shadow-md transition-all duration-200">
-                        Atualizar
+                        Save
                     </x-primary-button>
 
                     <a href="{{ route('games.index') }}"
                         class="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg 
                         hover:bg-gray-900 hover:text-white transition-colors duration-200">
-                        Voltar
+                        Back
                     </a>
                 </div>
             </form>

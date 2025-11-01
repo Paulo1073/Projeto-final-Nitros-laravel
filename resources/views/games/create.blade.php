@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl ml-6 text-purple-400 tracking-wide">
-                {{ __('Cadastro de Jogos') }}
+                {{ __('Game Registration') }}
             </h2>
         </div>
     </x-slot>
@@ -24,7 +24,7 @@
                     <div  class="flex gap-6">
                         <div class="flex-col">
                             <div>
-                                <x-input-label for="titulo" :value="__('Nome do jogo')" class="text-violet-700 mb-1" />
+                                <x-input-label for="titulo" :value="__('Game Name')" class="text-violet-700 mb-1" />
                                 <x-text-input id="titulo" name="titulo" :value="old('titulo')" required
                                     class="w-46 bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                                            focus:ring-2 focus:ring-purple-700 focus:border-purple-700" />
@@ -32,7 +32,7 @@
         
                             
                             <div class="mt-[10px]">
-                                <x-input-label for="genero" :value="__('Gênero')" class="text-violet-700 mb-1" />
+                                <x-input-label for="genero" :value="__('Gender')" class="text-violet-700 mb-1" />
                                 <x-text-input id="genero" name="genero" :value="old('genero')" required
                                     class="w-46 bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                                            focus:ring-2 focus:ring-purple-700 focus:border-purple-700" />
@@ -41,7 +41,7 @@
 
 
                         <div>
-                            <x-input-label for="descricao" :value="__('Descrição')" class="text-violet-700 mb-1" />
+                            <x-input-label for="descricao" :value="__('Description')" class="text-violet-700 mb-1" />
                             <textarea id="descricao" name="descricao" rows="4" class="w-[200px] h-[100px] bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg p-2 focus:ring-2 focus:ring-purple-700 focus:border-purple-700 resize-none">{{ old('descricao') }}
                             </textarea>
                         </div>
@@ -51,7 +51,7 @@
 
                    
                     <div>
-                        <x-input-label for="plataforma" :value="__('Plataforma')" class="text-violet-700 mb-1" />
+                        <x-input-label for="plataforma" :value="__('Plataform')" class="text-violet-700 mb-1" />
                          <select id="plataforma" name="plataforma" :value="old('plataforma')" required
                            class=" pl-2 w-46 h-8 bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                          focus:ring-2 focus:ring-purple-700 focus:border-purple-700" /> 
@@ -71,7 +71,7 @@
 
                     
                     <div>
-                        <x-input-label for="imagem" :value="__('Imagem do Jogo')" class="text-violet-700 mb-1" />
+                        <x-input-label for="imagem" :value="__('Game Image')" class="text-violet-700 mb-1" />
                         <input type="file" name="imagem" id="imagem" required
                             class="w-full text-gray-100 bg-gray-800 border border-purple-800/40 rounded-lg 
                                    file:mr-3 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm 
@@ -85,13 +85,13 @@
                             class="px-6 py-2 bg-gradient-to-r from-violet-700 to-violet-900 
                                    hover:from-purple-700 hover:to-purple-800 text-white 
                                    rounded-lg shadow-md transition-all duration-200">
-                            Cadastrar
+                            Save
                         </x-primary-button>
 
                         <a href="{{ route('games.index') }}" 
                            class="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg 
                                   hover:bg-gray-900 hover:text-white transition-colors duration-200">
-                            Voltar
+                            Back
                         </a>
                     </div>
                 </form>

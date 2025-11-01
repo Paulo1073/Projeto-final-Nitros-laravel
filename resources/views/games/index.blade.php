@@ -27,12 +27,12 @@
                         <table class="min-w-full text-sm text-gray-200">
                             <thead class="bg-[#070707] border-b-2 border-purple-700 sticky top-0 z-10 backdrop-blur-md">
                                 <tr>
-                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Imagem</th>
-                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Título</th>
-                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Gênero</th>
-                                    <th class="pr-10 text-left font-semibold tracking-wider text-purple-100">Plataforma</th>
-                                    <th class="pl-3 text-left font-semibold tracking-wider text-purple-100">Descrição</th>
-                                    <th class="pl-24 text-left font-semibold tracking-wider text-purple-100">Ações</th>
+                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Image</th>
+                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Title</th>
+                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Gender</th>
+                                    <th class="pr-10 text-left font-semibold tracking-wider text-purple-100">Plataform</th>
+                                    <th class="pl-3 text-left font-semibold tracking-wider text-purple-100">Description</th>
+                                    <th class="pl-24 text-left font-semibold tracking-wider text-purple-100">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,17 +46,17 @@
                                         <td class="px-6 py-3 text-gray-300">{{ $game->plataforma }}</td>
                                         <td class="px-6 py-3 text-gray-400 whitespace-pre-wrap">{{ $game->descricao }}</td>
                                         <td class="px-6 py-3 flex items-center gap-3">
-                                            <a href="{{ route('games.edit', $game->id) }}" class="px-3 py-1.5 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg shadow-md transition-all duration-200 flex items-center gap-1">✏️ Editar</a>
+                                            <a href="{{ route('games.edit', $game->id) }}" class="px-3 py-1.5 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg shadow-md transition-all duration-200 flex items-center gap-1">✏️ Edit</a>
                                             <form action="{{ route('games.destroy', $game->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este game?');">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="px-3 py-1.5 bg-gradient-to-r from-purple-800 to-purple-900 hover:from-purple-700 hover:to-purple-800 text-white rounded-lg shadow-md transition-all duration-200 flex items-center gap-1">🗑️ Excluir</button>
+                                                <button type="submit" class="px-3 py-1.5 bg-gradient-to-r from-purple-800 to-purple-900 hover:from-purple-700 hover:to-purple-800 text-white rounded-lg shadow-md transition-all duration-200 flex items-center gap-1">🗑️ Delete</button>
                                             </form>
                                         </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="7" class="px-6 py-6 text-center text-gray-500 italic">Nenhum game encontrado.</td>
+                                        <td colspan="7" class="px-6 py-6 text-center text-gray-500 italic">No games found.</td>
                                     </tr>
                                 @endforelse
                             </tbody>

@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl ml-2 text-purple-400 tracking-wide">
-                {{ __('Cadastrar Speedrun') }}
+                {{ __('Speedrun Registration') }}
             </h2>
         </div>
     </x-slot>
@@ -24,7 +24,7 @@
 
                 
                 <div>
-                    <x-input-label for="time" :value="__('Tempo da Speedrun')" class="text-violet-700 mb-1" />
+                    <x-input-label for="time" :value="__('Speedrun Time')" class="text-violet-700 mb-1" />
                     <x-text-input id="time" name="time" placeholder="hh:mm:ss" required
                         class="w-[250px] bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                                focus:ring-2 focus:ring-purple-700 focus:border-purple-700" 
@@ -34,7 +34,7 @@
 
                 
                 <div>
-                    <x-input-label for="date" :value="__('Data')" class="text-violet-700 mb-1" />
+                    <x-input-label for="date" :value="__('Date')" class="text-violet-700 mb-1" />
                     <x-text-input id="date" name="date" type="date" required
                         class="w-[250px] bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                                focus:ring-2 focus:ring-purple-700 focus:border-purple-700"
@@ -44,7 +44,7 @@
 
                 
                 <div>
-                    <x-input-label for="mode" :value="__('Modo de jogo')" class="text-violet-700 mb-1" />
+                    <x-input-label for="mode" :value="__('Game Mode')" class="text-violet-700 mb-1" />
                     <select id="mode" name="mode" required
                         class="w-[250px] bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                                p-2 focus:ring-2 focus:ring-purple-700 focus:border-purple-700">
@@ -58,7 +58,7 @@
 
                 
                 <div>
-                    <x-input-label for="game_id" :value="__('Jogo')" class="text-violet-700 mb-1" />
+                    <x-input-label for="game_id" :value="__('Game')" class="text-violet-700 mb-1" />
                     <select id="game_id" name="game_id" required
                         class="w-[250px] bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                                p-2 focus:ring-2 focus:ring-purple-700 focus:border-purple-700">
@@ -77,13 +77,13 @@
                         class="px-6 py-2 bg-gradient-to-r from-violet-700 to-violet-900 
                                hover:from-purple-700 hover:to-purple-800 text-white 
                                rounded-lg shadow-md transition-all duration-200">
-                        Salvar Speedrun
+                        Save
                     </x-primary-button>
 
                     <a href="{{ route('speedruns.index') }}" 
                        class="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg 
                               hover:bg-gray-900 hover:text-white transition-colors duration-200">
-                        Voltar
+                        Back
                     </a>
                 </div>
             </form>

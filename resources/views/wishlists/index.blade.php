@@ -28,11 +28,11 @@
                         <table class="min-w-full text-sm text-gray-200">
                             <thead class="bg-[#070707] border-b-2 border-purple-700 sticky top-0 z-10 backdrop-blur-md">
                                 <tr>
-                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Imagem</th>
-                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Nome</th>
-                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Data de Lançamento</th>
+                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Image</th>
+                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Name</th>
+                                    <th class="pl-[50px] text-left font-semibold tracking-wider text-purple-100">Release Date</th>
                                     <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Status</th>
-                                    <th class="pl-[80px] text-left font-semibold tracking-wider text-purple-100">Ações</th>
+                                    <th class="pl-[80px] text-left font-semibold tracking-wider text-purple-100">Actions</th>
                                 </tr>
                             </thead>
 

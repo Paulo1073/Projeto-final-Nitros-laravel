@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl ml-6 text-purple-400 tracking-wide">
-                {{ __('Adicionar Amigo') }}
+                {{ __('Friends Registration') }}
             </h2>
         </div>
     </x-slot>
@@ -24,11 +24,11 @@
 
                
                 <div>
-                    <x-input-label for="user_select" :value="__('Escolher Usuário')" class="text-violet-700 mb-1" />
+                    <x-input-label for="user_select" :value="__('Select User')" class="text-violet-700 mb-1" />
                     <select id="user_select" name="user_id" required
                         class="w-[250px] bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                                p-2 focus:ring-2 focus:ring-purple-700 focus:border-purple-700">
-                        <option value=""> Selecionar </option>
+                        <option value=""> Select </option>
                         @foreach($users as $user)
                             <option value="{{ $user->id }}">{{ $user->nickname }}</option>
                         @endforeach
@@ -38,7 +38,7 @@
 
                 
                 <div>
-                    <x-input-label for="bio" :value="__('Descrição')" class="text-violet-700 mb-1" />
+                    <x-input-label for="bio" :value="__('Description')" class="text-violet-700 mb-1" />
                     <textarea id="bio" name="bio" rows="4"
                         class="w-[250px] bg-gray-800 border border-purple-800/40 text-gray-100 rounded-lg 
                                p-2 focus:ring-2 focus:ring-purple-700 focus:border-purple-700 resize-none">{{ old('bio') }}</textarea>
@@ -51,13 +51,13 @@
                         class="px-6 py-2 bg-gradient-to-r from-violet-700 to-violet-900 
                                hover:from-purple-700 hover:to-purple-800 text-white 
                                rounded-lg shadow-md transition-all duration-200">
-                        Salvar
+                        Save
                     </x-primary-button>
 
                     <a href="{{ route('friends.index') }}" 
                        class="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg 
                               hover:bg-gray-900 hover:text-white transition-colors duration-200">
-                        Voltar
+                        Back
                     </a>
                 </div>
             </form>

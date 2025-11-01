@@ -6,7 +6,7 @@
             </h2>
             <a href="{{ route('speedruns.create') }}" 
                class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-violet-700 transition-colors">
-                Cadastrar Speedrun
+                Add Speedrun
             </a>
         </div>
     </x-slot>
@@ -28,11 +28,11 @@
                         <table class="min-w-full text-sm text-gray-200">
                             <thead class="bg-[#070707] border-b-2 border-purple-700 sticky top-0 z-10 backdrop-blur-md">
                                 <tr>
-                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Jogo</th>
-                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Tempo</th>
-                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Modo</th>
-                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Data</th>
-                                    <th class="pl-[90px] text-left font-semibold tracking-wider text-purple-100">Ações</th>
+                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Game</th>
+                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Time</th>
+                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Mode</th>
+                                    <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Date</th>
+                                    <th class="pl-[90px] text-left font-semibold tracking-wider text-purple-100">Actions</th>
                                 </tr>
                             </thead>
 
@@ -40,7 +40,7 @@
                                 @forelse($speedruns as $speedrun)
                                     <tr class="border-b border-purple-800/30 hover:bg-purple-800/20 transition-colors duration-300">
                                         <td class="px-6 py-3 font-semibold text-white">
-                                            {{ $speedrun->game->titulo ?? 'Jogo removido' }}
+                                            {{ $speedrun->game->titulo ?? 'Game Removed' }}
                                         </td>
                                         <td class="px-6 py-3 text-gray-300">
                                             {{ $speedrun->time }}
@@ -56,7 +56,7 @@
                                                class="px-3 py-1.5 bg-gradient-to-r from-blue-700 to-blue-800 
                                                       hover:from-blue-600 hover:to-blue-700 text-white 
                                                       rounded-lg shadow-md transition-all duration-200 flex items-center gap-1">
-                                                ✏️ Editar
+                                                ✏️ Edit
                                             </a>
 
                                             <form action="{{ route('speedruns.destroy', $speedrun->id) }}" method="POST" 
@@ -67,7 +67,7 @@
                                                     class="px-3 py-1.5 bg-gradient-to-r from-purple-800 to-purple-900 
                                                            hover:from-purple-700 hover:to-purple-800 text-white 
                                                            rounded-lg shadow-md transition-all duration-200 flex items-center gap-1">
-                                                    🗑️ Excluir
+                                                    🗑️ Delete
                                                 </button>
                                             </form>
                                         </td>
@@ -75,7 +75,7 @@
                                 @empty
                                     <tr>
                                         <td colspan="5" class="px-6 py-6 text-center text-gray-500 italic">
-                                            Nenhuma speedrun registrada ainda.
+                                            Speedrun not found.
                                         </td>
                                     </tr>
                                 @endforelse
