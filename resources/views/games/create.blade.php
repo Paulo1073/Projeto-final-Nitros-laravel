@@ -15,8 +15,8 @@
              style="background-image: url('{{ asset('assets/images/gameoption2.png') }}');">
         </div>
 
-        <!-- Formulário -->
-        <div class="flex flex-col justify-center ml-20  mt-[20px] mb-64 ">
+        
+        <div class="flex flex-col justify-center ml-12  mt-[20px] mb-64 ">
                 <x-application-logo-2 class="w-[100px] h-[100px] ml-[160px] fill-current text-gray-500" />
                 
                 <form  action="{{ route('games.store') }}" method="POST" enctype="multipart/form-data" class="space-y-5">

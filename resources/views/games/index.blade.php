@@ -1,12 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-white leading-tight">Games</h2>
+        <div class="flex justify-between items-center">
+            <h2 class="font-semibold text-xl ml-6 text-purple-400 tracking-wide">
+                {{ __('Games') }}
+            </h2>
+            <a href="{{ route('games.create') }}" 
+               class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-violet-700 transition-colors">
+                Add Game
+            </a>
+        </div>
     </x-slot>
 
-    <div class="min-h-screen bg-gray-900 flex flex-col">
-        <a href="{{ route('games.create') }}" class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-purple-900 transition-colors">
-            Add Game
-        </a>
+    <div class="min-h-screen bg-[#070707] flex flex-col">
+        
 
         <div class="flex-1 pt-4">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -19,7 +25,7 @@
                 <div class="rounded-2xl shadow-2xl border border-purple-800/40 bg-gradient-to-b from-gray-950 to-gray-900">
                     <div class="max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
                         <table class="min-w-full text-sm text-gray-200">
-                            <thead class="bg-gray-950/50 border-b-2 border-purple-700 sticky top-0 z-10 backdrop-blur-md">
+                            <thead class="bg-[#070707] border-b-2 border-purple-700 sticky top-0 z-10 backdrop-blur-md">
                                 <tr>
                                     <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Imagem</th>
                                     <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Título</th>

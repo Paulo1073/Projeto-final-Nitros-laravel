@@ -5,14 +5,14 @@
                 {{ __('Wishlist') }}
             </h2>
             <a href="{{ route('wishlists.create') }}" 
-               class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-purple-900 transition-colors">
+               class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-violet-700 transition-colors">
                 Add Game
             </a>
         </div>
     </x-slot>
 
-    <div class="min-h-screen bg-gray-900 flex flex-col">
-        <div class="flex-1 bg-gray-900 pt-4">
+    <div class="min-h-screen bg-[#070707] flex flex-col">
+        <div class="flex-1 bg-[#070707] pt-4">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 @if(session('success'))
                     <div class="mb-4 p-4 bg-green-100 text-green-800 rounded">
@@ -26,7 +26,7 @@
                     <div class="max-h-[500px] overflow-y-auto scrollbar-thin 
                                 scrollbar-thumb-gray-700 scrollbar-track-gray-900">
                         <table class="min-w-full text-sm text-gray-200">
-                            <thead class="bg-gray-950/50 border-b-2 border-purple-700 sticky top-0 z-10 backdrop-blur-md">
+                            <thead class="bg-[#070707] border-b-2 border-purple-700 sticky top-0 z-10 backdrop-blur-md">
                                 <tr>
                                     <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Imagem</th>
                                     <th class="px-6 py-3 text-left font-semibold tracking-wider text-purple-100">Nome</th>
