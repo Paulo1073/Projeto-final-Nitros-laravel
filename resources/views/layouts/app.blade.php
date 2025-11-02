@@ -13,7 +13,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-900 overflow-hidden text-white min-h-screen">
+<body class="bg-gray-900 overflow-hidden m-0 text-white min-h-screen">
 
     <!-- Barra lateral -->
     @include('layouts.navigation')

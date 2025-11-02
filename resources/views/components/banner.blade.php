@@ -1,4 +1,4 @@
-<div class="relative w-[1477px] mx-auto h-[572px]  overflow-hidden  ">
+<div class="relative w-[1185px] mx-auto h-[600px]  overflow-hidden  ">
     <!-- Slides -->
     <div class="absolute inset-0 transition-opacity duration-1000 opacity-100" id="slide1">
         <img src="{{ asset('assets/images/4.png') }}" class="w-full h-full object-cover" alt="Banner 1">
@@ -28,6 +28,36 @@
         <img src="{{ asset('assets/images/10.png') }}" class="w-full h-full object-cover" alt="Banner 7">
     </div>
 
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide8">
+        <img src="{{ asset('assets/images/11.png') }}" class="w-full h-full object-cover" alt="Banner 8">
+    </div>
+
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide9">
+        <img src="{{ asset('assets/images/12.png') }}" class="w-full h-full object-cover" alt="Banner 9">
+    </div>
+
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide10">
+        <img src="{{ asset('assets/images/13.png') }}" class="w-full h-full object-cover" alt="Banner 10">
+    </div>
+
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide11">
+        <img src="{{ asset('assets/images/14.png') }}" class="w-full h-full object-cover" alt="Banner 11">
+    </div>
+
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide12">
+        <img src="{{ asset('assets/images/15.png') }}" class="w-full h-full object-cover" alt="Banner 12">
+    </div>
+
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide13">
+        <img src="{{ asset('assets/images/16.png') }}" class="w-full h-full object-cover" alt="Banner 13">
+    </div>
+
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide14">
+        <img src="{{ asset('assets/images/17.png') }}" class="w-full h-full object-cover" alt="Banner 14">
+    </div>
+
+    
+
 
 
 
@@ -40,6 +70,13 @@
         <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot5"></div>
         <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot6"></div>
         <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot7"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot8"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot9"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot10"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot11"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot12"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot13"></div>
+        <div class="w-3 h-3 bg-white rounded-full opacity-40" id="dot14"></div>
     </div>
 </div>
 
@@ -52,7 +89,14 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('slide4'),
         document.getElementById('slide5'),
         document.getElementById('slide6'),
-        document.getElementById('slide7')
+        document.getElementById('slide7'),
+        document.getElementById('slide8'),
+        document.getElementById('slide9'),
+        document.getElementById('slide10'),
+        document.getElementById('slide11'),
+        document.getElementById('slide12'),
+        document.getElementById('slide13'),
+        document.getElementById('slide14'),
     ];
     let dots = [
         document.getElementById('dot1'),
@@ -61,7 +105,15 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('dot4'),
         document.getElementById('dot5'),
         document.getElementById('dot6'),
-        document.getElementById('dot7')
+        document.getElementById('dot7'),
+        document.getElementById('dot8'),
+        document.getElementById('dot9'),
+        document.getElementById('dot10'),
+        document.getElementById('dot11'),
+        document.getElementById('dot12'),
+        document.getElementById('dot13'),
+        document.getElementById('dot14 '),
+
 
     ];
 
