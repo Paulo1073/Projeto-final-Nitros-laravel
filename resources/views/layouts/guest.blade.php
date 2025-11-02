@@ -21,23 +21,12 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans relative text-gray-900 antialiased">
-
->
-    <div 
-        class="fixed inset-0 bg-center bg-cover  opacity-50 -z-10"
-        style="background-image: url('{{ asset('assets/images/FND-login.png') }}');">
-    </div>
-
+<body class="font-sans relative text-gray-900 antialiased bg-gradient-to-b from-[#070707] to-[#131313]">
 
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-transparent">
-        <div>
-            <a href="/">
-                <x-application-logo class="w-36 h-36 fill-current text-gray-500" />
-            </a>
-        </div>
+        
 
-        <div class="w-full sm:max-w-md mt-2 px-6 py-4 bg-white/80 backdrop-blur-md shadow-md overflow-hidden sm:rounded-lg">
+        <div class="w-full sm:max-w-md mt-2 px-6 py-4 bg-[#070707] backdrop-blur-md shadow-md overflow-hidden sm:rounded-lg">
             {{ $slot }}
         </div>
     </div>

@@ -17,11 +17,11 @@
     </div>
 
     <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide5">
-        <img src="{{ asset('assets/images/8.png') }}" class="w-full h-full object-cover" alt="Banner 5">
+        <img src="{{ asset('assets/images/9.png') }}" class="w-full h-full object-cover" alt="Banner 5">
     </div>
 
     <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide6">
-        <img src="{{ asset('assets/images/9.png') }}" class="w-full h-full object-cover" alt="Banner 6">
+        <img src="{{ asset('assets/images/8.png') }}" class="w-full h-full object-cover" alt="Banner 6">
     </div>
 
     <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide7">
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('dot11'),
         document.getElementById('dot12'),
         document.getElementById('dot13'),
-        document.getElementById('dot14 '),
+        document.getElementById('dot14'),
 
 
     ];
