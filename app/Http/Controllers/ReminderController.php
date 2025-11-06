@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 
 class ReminderController extends Controller
 {
-    /**
-     * Lista todos os lembretes
-     */
+    
     public function index()
     {
         $reminders = Reminder::with('game')->get();
@@ -18,9 +16,7 @@ class ReminderController extends Controller
         return view('reminders.index', compact('reminders'));
     }
 
-    /**
-     * Mostra o formulário de criação
-     */
+    
     public function create()
     {
         $games = Game::all();
@@ -28,9 +24,7 @@ class ReminderController extends Controller
         return view('reminders.create', compact('games'));
     }
 
-    /**
-     * Salva um novo lembrete
-     */
+    
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -48,9 +42,7 @@ class ReminderController extends Controller
         return redirect()->route('reminders.index')->with('success', 'Lembrete criado com sucesso!');
     }
 
-    /**
-     * Mostra o formulário de edição
-     */
+    
     public function edit(Reminder $reminder)
     {
         $games = Game::all();
@@ -58,9 +50,7 @@ class ReminderController extends Controller
         return view('reminders.edit', compact('reminder', 'games'));
     }
 
-    /**
-     * Atualiza um lembrete existente
-     */
+    
     public function update(Request $request, Reminder $reminder)
     {
         $validated = $request->validate([
@@ -75,9 +65,7 @@ class ReminderController extends Controller
         return redirect()->route('reminders.index')->with('success', 'Lembrete atualizado com sucesso!');
     }
 
-    /**
-     * Deleta um lembrete
-     */
+    
     public function destroy(Reminder $reminder)
     {
         $reminder->delete();

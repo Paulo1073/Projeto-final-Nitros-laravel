@@ -45,7 +45,7 @@
                                        focus:ring-2 focus:ring-purple-700 focus:border-purple-700" />
                         </div>
 
-                        <!-- Status -->
+                       
                         <div>
                             <x-input-label for="status" :value="__('Status')" class="text-violet-700 mb-1" />
                             <select id="status" name="status" required
@@ -56,7 +56,7 @@
                             </select>
                         </div>
 
-                        <!-- Upload de nova imagem -->
+                        
                         <div>
                             <x-input-label for="image" :value="__('New Game Image')" class="text-violet-700 mb-1" />
                             <input type="file" name="image" id="image"

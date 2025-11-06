@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Game;
 use App\Models\Speedrun;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SpeedrunController extends Controller
 {
@@ -31,7 +32,13 @@ class SpeedrunController extends Controller
             'mode' => 'required|string|max:50',
         ]);
 
-        Speedrun::create($request->only('game_id', 'time', 'date', 'mode'));
+        Speedrun::create([
+            'game_id' => $request['game_id'],
+            'time' => $request['time'],
+            'date' => $request['date'],
+            'mode' => $request['mode'],
+            'user_id' => Auth::id(),
+        ]);
 
         return redirect()->route('speedruns.index')->with('success', 'Speedrun cadastrada com sucesso!');
     }

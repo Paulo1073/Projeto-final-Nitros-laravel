@@ -39,7 +39,7 @@ class FriendController extends Controller
             'bio' => 'nullable|string',
         ]);
 
-        // Pega o usuário selecionado para salvar o nickname
+       
         $user = \App\Models\User::find($validated['user_id']);
 
         Friend::create([

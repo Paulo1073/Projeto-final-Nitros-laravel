@@ -54,7 +54,7 @@ class WishlistController extends Controller
             'status' => 'required|in:desired,purchased',
         ]);
 
-        // Atualizar imagem apenas se houver upload
+        
         if ($request->hasFile('image')) {
             $wishlist->image = $request->file('image')->store('wishlists', 'public');
         }

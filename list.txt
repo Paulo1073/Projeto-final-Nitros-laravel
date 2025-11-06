@@ -1,4 +1,7 @@
 1. Estilização do Profile [v]
-2. Transformar tudo em inglês [x]
+2. Transformar tudo em inglês [v]
 3. Reponsividade [x]
 4. Terminar a dashboard [x]
+
+
+php artisan storage:link
