@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-color: 139, 92, 246;
+}
+
+.text-primary {
+  color: rgb(var(--primary-color));
+}
+
+.border-primary {
+  border-color: rgb(var(--primary-color));
+}
+
+.bg-primary {
+  background-color: rgb(var(--primary-color));
+}
+
+.hover\:bg-primary-dark:hover {
+  background-color: rgb(var(--primary-color) / 0.8);
+}

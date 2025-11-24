@@ -11,10 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/favicons/apple-touch-icon.png') }}" />
     <meta name="apple-mobile-web-app-title" content="Nitros" />
     <link rel="manifest" href="{{ asset('assets/favicons/site.webmanifest') }}" />
-
     <title>Nitros</title>
-
-
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 

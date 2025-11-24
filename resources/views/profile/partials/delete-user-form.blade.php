@@ -1,6 +1,7 @@
+
 <section class="space-y-6">
     <header>
-        <h2 class="text-lg font-medium text-violet-700">
+        <h2 class="text-lg font-medium text-primary">
             {{ __('Delete Account') }}
         </h2>
 
@@ -9,32 +10,36 @@
         </p>
     </header>
 
+
     <x-danger-button
         x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-    >{{ __('Delete Account') }}</x-danger-button>
+        class="bg-red-600 hover:bg-red-700 active:bg-red-800"
+    >
+        {{ __('Delete Account') }}
+    </x-danger-button>
 
     <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
-        <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
+        <form method="post" action="{{ route('profile.destroy') }}" class="p-6 bg-gray-900 ">
             @csrf
             @method('delete')
 
-            <h2 class="text-lg font-medium text-gray-900">
+            <h2 class="text-lg font-medium text-primary">
                 {{ __('Are you sure you want to delete your account?') }}
             </h2>
 
-            <p class="mt-1 text-sm text-gray-600">
+            <p class="mt-1 text-sm text-white">
                 {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
             </p>
 
             <div class="mt-6">
-                <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" />
+                <x-input-label for="password" value="{{ __('Password') }}" class="sr-only  border-primary " />
 
                 <x-text-input
                     id="password"
                     name="password"
                     type="password"
-                    class="mt-1 block w-3/4"
+                    class="mt-1 block w-3/4 border-primary bg-gray-900 focus:border-primary "
                     placeholder="{{ __('Password') }}"
                 />
 
@@ -46,7 +51,8 @@
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button class="ms-3">
+                
+                <x-danger-button class="ms-3 bg-red-600 hover:bg-red-700 active:bg-red-800">
                     {{ __('Delete Account') }}
                 </x-danger-button>
             </div>

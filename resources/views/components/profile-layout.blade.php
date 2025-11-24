@@ -20,24 +20,22 @@
         
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="m-0  bg-gray-800 min-h-screen text-white">
-
-        <div class="min-h-screen bg-gray-900  ">
+    <body class="m-0 bg-gray-800 min-h-screen text-white">
+        <div class="min-h-screen bg-gray-900">
             @include('layouts.navigation')
 
-  
             @isset($header)
-                <header class=" bg-[#070707] border-b-2 border-b-purple-800 bg-whiteshadow">
+                <header class="bg-[#070707] border-b-2   border-primary">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
             @endisset
 
-
-            <main class="bg-[#070707]" >
+            <main class="bg-[#070707]">
                 {{ $slot }}
             </main>
         </div>
     </body>
+
 </html>

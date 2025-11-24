@@ -19,8 +19,8 @@
     <x-app-layout>
 
         <x-slot name="header">
-            <h2 class="font-semibold text-xl ml-10 text-purple-400 tracking-wide">
-                {{ __('Dashboard') }}
+            <h2 class="font-semibold text-xl ml-10 text-primary tracking-wide">
+                {{ __('messages.home') }}
             </h2>
         </x-slot>
 

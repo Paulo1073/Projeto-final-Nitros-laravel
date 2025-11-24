@@ -10,18 +10,19 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/games.css') }}">
+    
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body class="bg-gray-900 overflow-hidden m-0 text-white min-h-screen">
 
-    <!-- Barra lateral -->
     @include('layouts.navigation')
 
-    <!-- Conteúdo principal -->
     <div class="ml-64 min-h-screen bg-[#0B0B0B]">
+
         @isset($header)
-            <header class="bg-[#090909] border-b-2 border-purple-800">
+            <header class="bg-[#090909] border-b-2 border-primary">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
@@ -32,6 +33,8 @@
             {{ $slot }}
         </main>
     </div>
+
+    <script src="{{ asset('assets/js/color.js') }}"></script>
 
 </body>
 </html>
