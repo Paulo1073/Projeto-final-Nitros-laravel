@@ -20,7 +20,7 @@
 
         <x-slot name="header">
             <h2 class="font-semibold text-xl ml-10 text-primary tracking-wide">
-                {{ __('messages.home') }}
+                {{ __('Home') }}
             </h2>
         </x-slot>
 

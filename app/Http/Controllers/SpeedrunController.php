@@ -4,39 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\Speedrun;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreSpeedrunRequest;
+use App\Http\Requests\UpdateSpeedrunRequest;
 
 class SpeedrunController extends Controller
 {
     public function index()
     {
         $speedruns = Speedrun::with('game')->get();
-
         return view('speedruns.index', compact('speedruns'));
     }
 
     public function create()
     {
         $games = Game::all();
-
         return view('speedruns.create', compact('games'));
     }
 
-    public function store(Request $request)
+    public function store(StoreSpeedrunRequest $request)
     {
-        $request->validate([
-            'game_id' => 'required|exists:games,id',
-            'time' => 'required|string',
-            'date' => 'required|date',
-            'mode' => 'required|string|max:50',
-        ]);
-
         Speedrun::create([
-            'game_id' => $request['game_id'],
-            'time' => $request['time'],
-            'date' => $request['date'],
-            'mode' => $request['mode'],
+            'game_id' => $request->game_id,
+            'time' => $request->time,
+            'date' => $request->date,
+            'mode' => $request->mode,
             'user_id' => Auth::id(),
         ]);
 
@@ -46,20 +38,17 @@ class SpeedrunController extends Controller
     public function edit(Speedrun $speedrun)
     {
         $games = Game::all();
-
         return view('speedruns.edit', compact('speedrun', 'games'));
     }
 
-    public function update(Request $request, Speedrun $speedrun)
+    public function update(UpdateSpeedrunRequest $request, Speedrun $speedrun)
     {
-        $request->validate([
-            'game_id' => 'required|exists:games,id',
-            'time' => 'required|string',
-            'date' => 'required|date',
-            'mode' => 'required|string|max:50',
+        $speedrun->update([
+            'game_id' => $request->game_id,
+            'time' => $request->time,
+            'date' => $request->date,
+            'mode' => $request->mode,
         ]);
-
-        $speedrun->update($request->only('game_id', 'time', 'date', 'mode'));
 
         return redirect()->route('speedruns.index')->with('success', 'Speedrun atualizada com sucesso!');
     }
@@ -67,7 +56,6 @@ class SpeedrunController extends Controller
     public function destroy(Speedrun $speedrun)
     {
         $speedrun->delete();
-
         return redirect()->route('speedruns.index')->with('success', 'Speedrun excluída com sucesso!');
     }
 }

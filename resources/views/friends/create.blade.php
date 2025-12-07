@@ -22,7 +22,7 @@
 
                 <div>
                     <x-input-label for="user_select" :value="__('Select User')" class="text-primary mb-1" />
-                    <select id="user_select" name="user_id" required
+                    <select id="user_select" name="user_id"
                         class="w-[250px] bg-gray-800 border border-primary text-gray-100 rounded-lg 
                                p-2 focus:ring-2 focus:ring-primary focus:border-primary">
                         <option value="">Select</option>
@@ -30,6 +30,10 @@
                             <option value="{{ $user->id }}">{{ $user->nickname }}</option>
                         @endforeach
                     </select>
+                    
+                    @error('user_id')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div>
@@ -37,6 +41,10 @@
                     <textarea id="bio" name="bio" rows="4"
                         class="w-[250px] bg-gray-800 border border-primary text-gray-100 rounded-lg 
                                p-2 focus:ring-2 focus:ring-primary focus:border-primary resize-none">{{ old('bio') }}</textarea>
+
+                    @error('bio')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="flex items-center justify-between pt-4">

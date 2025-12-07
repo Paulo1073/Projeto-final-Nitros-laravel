@@ -16,7 +16,8 @@
         </div>
 
         <div class="flex flex-col justify-center ml-[40px] mt-[20px] mb-64">
-            <x-application-logo-2 class="w-[100px] h-[100px] ml-[70px] fill-current text-primary" />
+
+            
 
             <form action="{{ route('friends.update', $friend->id) }}" method="POST" class="space-y-6">
                 @csrf
@@ -24,15 +25,20 @@
 
                 <div>
                     <x-input-label for="user_select" :value="__('Select User')" class="text-primary mb-1" />
-                    <select id="user_select" name="user_id" required
+                    <select id="user_select" name="user_id"
                         class="w-[250px] bg-gray-800 border border-primary text-gray-100 rounded-lg 
                                p-2 focus:ring-2 focus:ring-primary focus:border-primary">
+
                         @foreach($users as $user)
                             <option value="{{ $user->id }}" {{ old('user_id', $friend->user_id) == $user->id ? 'selected' : '' }}>
                                 {{ $user->nickname }}
                             </option>
                         @endforeach
                     </select>
+
+                    @error('user_id')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div>
@@ -40,6 +46,10 @@
                     <textarea id="bio" name="bio" rows="4"
                         class="w-[250px] bg-gray-800 border border-primary text-gray-100 rounded-lg 
                                p-2 focus:ring-2 focus:ring-primary focus:border-primary resize-none">{{ old('bio', $friend->bio) }}</textarea>
+
+                    @error('bio')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="flex items-center justify-between pt-4">

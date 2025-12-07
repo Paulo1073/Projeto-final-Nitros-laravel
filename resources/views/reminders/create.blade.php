@@ -17,8 +17,6 @@
 
         <div class="flex flex-col justify-center ml-0 md:ml-12 mt-5 mb-64 w-full md:w-auto">
 
-            
-
             <form action="{{ route('reminders.store') }}" method="POST" class="space-y-5 mt-6">
                 @csrf
 
@@ -27,20 +25,26 @@
 
                         <div>
                             <x-input-label for="titulo" :value="__('Reminder Title')" class="text-primary mb-1" />
-                            <x-text-input id="titulo" name="titulo" :value="old('titulo')" required
+                            <x-text-input id="titulo" name="titulo" :value="old('titulo')"
                                 class="w-[180px] bg-gray-800 border border-primary text-gray-100 rounded-lg 
                                        focus:ring-2 focus:ring-primary focus:border-primary" />
+                            @error('titulo')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div>
                             <x-input-label for="game_id" :value="__('Game')" class="text-primary mb-1" />
-                            <select id="game_id" name="game_id" required
+                            <select id="game_id" name="game_id"
                                 class="pl-2 w-[180px] h-8 bg-gray-800 border border-primary text-gray-100 rounded-lg 
                                        focus:ring-2 focus:ring-primary focus:border-primary">
                                 @foreach($games as $game)
                                     <option value="{{ $game->id }}">{{ $game->titulo }}</option>
                                 @endforeach
                             </select>
+                            @error('game_id')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                     </div>
@@ -50,6 +54,9 @@
                         <textarea id="descricao" name="descricao" rows="4"
                             class="w-[300px] h-[100px] bg-gray-800 border border-primary text-gray-100 rounded-lg p-2
                                          focus:ring-2 focus:ring-primary focus:border-primary resize-none">{{ old('descricao') }}</textarea>
+                        @error('descricao')
+                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
 
